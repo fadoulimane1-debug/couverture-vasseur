@@ -85,11 +85,11 @@ export default function RefectionArdoise() {
       />
 
       {/* H1 + accroche */}
-      <section className="blueprint-grid border-b border-ciel/15">
+      <section className="tone-dark bg-nuit blueprint-grid border-b border-nuit/10">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-14 md:pt-20">
           <nav aria-label="Fil d’Ariane" className="cartouche">
             <Link href="/" className="hover:text-papier">Accueil</Link>
-            <span className="mx-2 text-papier/30">/</span>
+            <span className="mx-2 text-papier/45">/</span>
             <span className="text-papier/60">Réfection toiture ardoise</span>
           </nav>
           <h1 className="mt-4 max-w-4xl text-[2.3rem] leading-[1.06] text-papier sm:text-5xl md:text-[3.8rem]">
@@ -283,16 +283,16 @@ export default function RefectionArdoise() {
         title="Pourquoi deux réfections d’ardoise ne se chiffrent pas pareil"
         intro="Fourchette de référence à Angers en 2026 : 180 à 320 €/m² dépose comprise, en ardoise naturelle. Quatre paramètres expliquent l’écart."
       >
-        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+        <div className="grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 md:grid-cols-2">
           {[
             { t: 'La surface courante et la géométrie', d: 'Deux pans réguliers, ou toiture à la Mansart avec brisis, lucarnes, croupes et noues : le linéaire de points singuliers pèse plus lourd que les mètres carrés courants.' },
             { t: 'L’état réel de la charpente', d: 'Invisible avant la dépose. Un traitement et quelques greffes de chevrons se chiffrent en centaines d’euros ; une panne à remplacer, en milliers. Toujours sur devis signé avant exécution.' },
             { t: 'L’accès et l’échafaudage', d: 'Recul de cour, hauteur, échafaudage sur rue avec autorisation de voirie, portage manuel : c’est souvent ce poste qui écarte deux devis d’apparence identique.' },
             { t: 'Le choix de l’ardoise', d: 'Ardoise naturelle d’Anjou, ardoise d’importation, ardoise fibre-ciment de teinte proche : la fourniture varie du simple au double, et le mode de pose avec.' },
           ].map((f) => (
-            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
-              <h3 className="font-display text-lg text-papier">{f.t}</h3>
-              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
+            <div key={f.t} className="bg-white p-6 md:p-7">
+              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
         </div>
@@ -406,28 +406,28 @@ export default function RefectionArdoise() {
         title="Ce qu’une réfection appelle souvent après elle"
         intro="Zinguerie, fenêtre de toit, isolation : une couverture neuve ouvre d’autres chantiers. Et le contexte angevin a sa propre page."
       >
-        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
+        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 sm:grid-cols-2">
           {autres.map((p) => (
-            <li key={p.slug} className="bg-nuit-2 p-5">
-              <Link href="/#prestations" className="font-display text-lg text-papier hover:text-ciel">
+            <li key={p.slug} className="bg-white p-5">
+              <Link href="/#prestations" className="font-display text-lg text-nuit hover:text-encre">
                 {p.titre}
               </Link>
-              <p className="mt-1 text-sm text-papier/65">{p.resume}</p>
+              <p className="mt-1 text-sm text-nuit/65">{p.resume}</p>
             </li>
           ))}
-          <li className="bg-nuit-2 p-5">
-            <Link href="/couvreur-angers" className="font-display text-lg text-papier hover:text-ciel">
+          <li className="bg-white p-5">
+            <Link href="/couvreur-angers" className="font-display text-lg text-nuit hover:text-encre">
               Couvreur à Angers — le contexte local
             </Link>
-            <p className="mt-1 text-sm text-papier/65">
+            <p className="mt-1 text-sm text-nuit/65">
               Bâti ancien, secteur patrimonial, contraintes d’accès du centre.
             </p>
           </li>
-          <li className="bg-nuit-2 p-5">
-            <Link href="/#zone" className="font-display text-lg text-papier hover:text-ciel">
+          <li className="bg-white p-5">
+            <Link href="/#zone" className="font-display text-lg text-nuit hover:text-encre">
               La zone d’intervention
             </Link>
-            <p className="mt-1 text-sm text-papier/65">
+            <p className="mt-1 text-sm text-nuit/65">
               Angers, Avrillé, Beaucouzé, Les Ponts-de-Cé, Trélazé,
               Saint-Barthélemy-d’Anjou, Écouflant.
             </p>

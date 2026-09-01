@@ -39,14 +39,14 @@ export default function DevisForm() {
 
   if (state === 'ok') {
     return (
-      <div className="rounded-[4px] border border-ciel/40 bg-ciel/10 p-6">
-        <p className="font-mono text-[0.72rem] uppercase tracking-label text-ciel">
+      <div className="rounded-[4px] border border-encre/40 bg-encre/[0.06] p-6">
+        <p className="font-mono text-[0.72rem] uppercase tracking-label text-encre">
           Demande reçue
         </p>
-        <p className="mt-3 text-papier/85">{message}</p>
-        <p className="mt-4 text-sm text-papier/60">
+        <p className="mt-3 text-nuit/85">{message}</p>
+        <p className="mt-4 text-sm text-nuit/65">
           Besoin d’une réponse tout de suite ?{' '}
-          <a href={business.phoneHref} className="text-ciel underline underline-offset-2">
+          <a href={business.phoneHref} className="text-encre underline underline-offset-2">
             {business.phoneDisplay}
           </a>
         </p>
@@ -55,8 +55,8 @@ export default function DevisForm() {
   }
 
   const field =
-    'w-full rounded-[2px] border border-ciel/25 bg-nuit px-3 py-2.5 text-papier placeholder:text-papier/35 focus:border-ciel focus:outline-none';
-  const labelCls = 'block font-mono text-[0.68rem] uppercase tracking-label text-ciel/85';
+    'w-full rounded-[2px] border border-nuit/25 bg-white px-3 py-2.5 text-nuit placeholder:text-nuit/60 focus:border-encre focus:outline-none';
+  const labelCls = 'block font-mono text-[0.68rem] uppercase tracking-label text-encre';
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4" noValidate>
@@ -146,8 +146,8 @@ export default function DevisForm() {
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-papier/70">
-        <input type="checkbox" name="consentement" required className="mt-1" />
+      <label className="flex items-start gap-3 text-sm text-nuit/70">
+        <input type="checkbox" name="consentement" required className="mt-1 accent-encre" />
         <span>
           J’accepte que ces informations soient utilisées pour me recontacter au
           sujet de ma demande de devis.
@@ -155,7 +155,7 @@ export default function DevisForm() {
       </label>
 
       {state === 'error' ? (
-        <p role="alert" className="rounded-[2px] border border-laiton/50 bg-laiton/10 p-3 text-sm text-papier/85">
+        <p role="alert" className="rounded-[2px] border border-laiton/60 bg-laiton/10 p-3 text-sm text-nuit/85">
           {message}
         </p>
       ) : null}
@@ -164,18 +164,18 @@ export default function DevisForm() {
         <button
           type="submit"
           disabled={state === 'sending'}
-          className="rounded-[2px] bg-encre px-6 py-3 font-mono text-[0.75rem] uppercase tracking-label text-white transition-colors hover:bg-ciel hover:text-nuit disabled:opacity-60"
+          className="rounded-[2px] bg-encre px-6 py-3 font-mono text-[0.75rem] uppercase tracking-label text-white transition-colors hover:bg-encre-fonce disabled:opacity-60"
         >
           {state === 'sending' ? 'Envoi…' : 'Envoyer la demande'}
         </button>
-        <span className="text-sm text-papier/55">
+        <span className="text-sm text-nuit/60">
           ou appelez le{' '}
-          <a href={business.phoneHref} className="text-ciel underline underline-offset-2">
+          <a href={business.phoneHref} className="text-encre underline underline-offset-2">
             {business.phoneDisplay}
           </a>
         </span>
       </div>
-      <p className="text-xs text-papier/40">
+      <p className="text-xs text-nuit/50">
         Réponse sous 48 h ouvrées. Déplacement et devis gratuits dans toute la zone
         d’intervention.
       </p>

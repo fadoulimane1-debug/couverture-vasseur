@@ -72,8 +72,8 @@ export default function MentionsLegales() {
         </div>
       </div>
 
-      <p className="mt-8 font-mono text-[0.75rem] uppercase tracking-label text-papier/55">
-        <Link href="/" className="hover:text-ciel">
+      <p className="mt-8 font-mono text-[0.75rem] uppercase tracking-label text-nuit/70">
+        <Link href="/" className="hover:text-encre">
           ← Retour à l’accueil
         </Link>
       </p>

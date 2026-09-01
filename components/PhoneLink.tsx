@@ -12,10 +12,10 @@ export default function PhoneLink({ variant = 'button', className = '', label }:
     'inline-flex items-center gap-2 font-mono tracking-label uppercase text-[0.78rem] transition-colors';
   const styles = {
     button:
-      'rounded-[2px] bg-encre px-5 py-3 text-white hover:bg-ciel hover:text-nuit',
+      'rounded-[2px] bg-encre px-5 py-3 text-white hover:bg-encre-fonce',
     ghost:
-      'rounded-[2px] border border-ciel/40 px-5 py-3 text-ciel hover:border-ciel hover:bg-ciel/10',
-    inline: 'underline underline-offset-4 decoration-1 hover:text-ciel',
+      'rounded-[2px] border border-encre/40 px-5 py-3 text-encre hover:border-encre hover:bg-encre/10',
+    inline: 'underline underline-offset-4 decoration-1 hover:text-encre',
   }[variant];
 
   return (

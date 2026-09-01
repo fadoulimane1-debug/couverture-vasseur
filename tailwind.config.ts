@@ -19,6 +19,7 @@ const config: Config = {
           DEFAULT: '#EEF1F5',
           2: '#E2E7EE',
         },
+        fond: '#FAFAF8',
         laiton: '#C08A3E',
       },
       fontFamily: {

@@ -114,13 +114,16 @@ const facteursPrix = [
   },
 ];
 
+const gridWrap =
+  'grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12';
+
 export default function Accueil() {
   return (
     <>
       <Jsonld data={faqSchema(faq)} />
 
-      {/* Bandeau d'ouverture — H1, promesse, téléphone, devis, coupe technique */}
-      <section className="blueprint-grid border-b border-ciel/15">
+      {/* Bandeau d'ouverture — zone sombre : H1, promesse, téléphone, devis, coupe technique */}
+      <section className="tone-dark bg-nuit blueprint-grid border-b border-nuit/10">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-16 md:pt-20">
           <p className="cartouche">Angers · Anjou · Maine-et-Loire 49</p>
           <h1 className="mt-4 max-w-4xl text-[2.6rem] leading-[1.05] text-papier sm:text-6xl md:text-[4.4rem]">
@@ -146,7 +149,7 @@ export default function Accueil() {
             {business.trust.reviewCount} avis Google · {business.since}
           </p>
 
-          <RoofSection className="mt-12 rounded-[4px] border border-ciel/15 bg-nuit-2/60 p-4 md:mt-16 md:p-8" />
+          <RoofSection className="mt-12 rounded-[4px] border border-ciel/15 bg-nuit-2/60 p-4 text-ciel md:mt-16 md:p-8" />
         </div>
       </section>
 
@@ -232,24 +235,24 @@ export default function Accueil() {
         title="Huit métiers, une seule main sur le toit"
         intro="Du relevé de charpente à la dernière soudure d’étain, tout passe par l’équipe. Rien n’est confié à un tâcheron de passage."
       >
-        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+        <div className={`${gridWrap} md:grid-cols-2`}>
           {prestations.map((p) => {
             const isPage = p.slug === primaryPrestationSlug;
             return (
-              <div key={p.slug} className="bg-nuit-2 p-6 md:p-7">
-                <h3 className="font-display text-xl text-papier">
+              <div key={p.slug} className="bg-white p-6 md:p-7">
+                <h3 className="font-display text-xl text-nuit">
                   {isPage ? (
-                    <Link href={`/${primaryPrestationSlug}`} className="hover:text-ciel">
+                    <Link href={`/${primaryPrestationSlug}`} className="hover:text-encre">
                       {p.titre} →
                     </Link>
                   ) : (
                     p.titre
                   )}
                 </h3>
-                <p className="mt-1 font-mono text-[0.72rem] uppercase tracking-label text-ciel/70">
+                <p className="mt-1 font-mono text-[0.72rem] uppercase tracking-label text-encre">
                   {p.resume}
                 </p>
-                <p className="mt-3 text-sm text-papier/70">{p.detail}</p>
+                <p className="mt-3 text-sm text-nuit/70">{p.detail}</p>
               </div>
             );
           })}
@@ -267,13 +270,13 @@ export default function Accueil() {
             <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
               <Figure src={c.src} alt={c.alt} caption={c.caption} />
               <div>
-                <h3 className="font-display text-xl text-papier">{c.titre}</h3>
-                <p className="mt-3 text-papier/75">{c.texte}</p>
+                <h3 className="font-display text-xl text-nuit">{c.titre}</h3>
+                <p className="mt-3 text-nuit/70">{c.texte}</p>
               </div>
             </article>
           ))}
         </div>
-        <p className="mt-8 text-sm text-papier/55">
+        <p className="mt-8 text-sm text-nuit/70">
           Les dessins ci-dessus sont des relevés de principe. Les photos de
           chantier se voient sur demande, avec l’accord des propriétaires.
         </p>
@@ -303,11 +306,11 @@ export default function Accueil() {
         title="Pourquoi deux toitures de même surface ne coûtent pas pareil"
         intro="Un prix au mètre carré ne dit rien tant qu’on n’a pas vu le toit. Voici les quatre facteurs qui déplacent vraiment un devis, et des fourchettes pour situer votre projet."
       >
-        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+        <div className={`${gridWrap} md:grid-cols-2`}>
           {facteursPrix.map((f) => (
-            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
-              <h3 className="font-display text-lg text-papier">{f.t}</h3>
-              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
+            <div key={f.t} className="bg-white p-6 md:p-7">
+              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
         </div>
@@ -340,20 +343,20 @@ export default function Accueil() {
         title="Les preuves, avant les adjectifs"
         intro="« Sérieux », « qualifié », « à votre écoute » : des mots que tout le monde écrit. Voici plutôt ce qui se contrôle, pièce en main, avant même de nous appeler."
       >
-        <dl className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className={`${gridWrap} sm:grid-cols-2 lg:grid-cols-4`}>
           {[
             { k: `${business.trust.rating} / 5`, v: `${business.trust.reviewCount} avis Google laissés après des chantiers dans l’agglomération` },
             { k: 'RGE Qualibat', v: 'la mention sans laquelle l’isolation n’ouvre aucun droit à aide' },
             { k: 'Décennale', v: 'contractée chez MMA, attestation nominative jointe à chaque devis' },
             { k: `${business.foundingYear}`, v: `à Angers ${business.since} — ${business.yearsLabel}` },
           ].map((s) => (
-            <div key={s.v} className="bg-nuit-2 p-6">
-              <dt className="font-display text-2xl text-ciel">{s.k}</dt>
-              <dd className="mt-2 text-sm text-papier/70">{s.v}</dd>
+            <div key={s.v} className="bg-white p-6">
+              <dt className="font-display text-2xl text-encre">{s.k}</dt>
+              <dd className="mt-2 text-sm text-nuit/70">{s.v}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-6 max-w-prose2 text-sm text-papier/60">
+        <p className="mt-6 max-w-prose2 text-sm text-nuit/60">
           Numéro de certificat RGE et références d’assurance — {business.trust.qualibat}, {business.trust.decennale} — transmis sans détour, à
           l’écrit, avec le devis.
         </p>
@@ -400,28 +403,28 @@ export default function Accueil() {
         title="Angers et sa première couronne, pas au-delà"
         intro="Un rayon resserré, choisi. C’est ce qui permet d’être sur place vite, de connaître les guichets d’urbanisme commune par commune, et de repasser sans facturer la route."
       >
-        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
+        <ul className={`${gridWrap} sm:grid-cols-2`}>
           {communes.map((c) => (
-            <li key={c.name} className="bg-nuit-2 p-5">
+            <li key={c.name} className="bg-white p-5">
               <div className="flex items-baseline justify-between gap-3">
-                <span className="font-display text-lg text-papier">
+                <span className="font-display text-lg text-nuit">
                   {c.name === 'Angers' ? (
-                    <Link href="/couvreur-angers" className="hover:text-ciel">
+                    <Link href="/couvreur-angers" className="hover:text-encre">
                       Couvreur à {c.name}
                     </Link>
                   ) : (
                     `Couvreur ${c.name}`
                   )}
                 </span>
-                <span className="font-mono text-[0.72rem] text-ciel/70">{c.cp}</span>
+                <span className="font-mono text-[0.72rem] text-encre">{c.cp}</span>
               </div>
-              <p className="mt-1 text-sm text-papier/65">{c.note}</p>
+              <p className="mt-1 text-sm text-nuit/65">{c.note}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-sm text-papier/60">
+        <p className="mt-6 text-sm text-nuit/60">
           Page dédiée :{' '}
-          <Link href="/couvreur-angers" className="text-ciel underline underline-offset-2">
+          <Link href="/couvreur-angers" className="text-encre-fonce underline underline-offset-2 hover:text-encre">
             couvreur à Angers — toitures anciennes et ardoise d’Anjou
           </Link>
           .
@@ -447,8 +450,8 @@ export default function Accueil() {
       {/* Rappel de contact + maillage interne */}
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <div className="hairline pt-8">
-          <h2 className="text-3xl text-papier md:text-4xl">Le plus court chemin, c’est le téléphone</h2>
-          <p className="mt-4 max-w-prose2 text-papier/75">
+          <h2 className="text-3xl text-nuit md:text-4xl">Le plus court chemin, c’est le téléphone</h2>
+          <p className="mt-4 max-w-prose2 text-nuit/70">
             {business.founderFirstName} décroche lui-même, du lundi au vendredi de
             7 h 30 à 18 h 30 et le samedi matin. Pour une urgence, appelez plutôt
             que d’écrire : la ligne va plus vite qu’un formulaire.
@@ -458,22 +461,22 @@ export default function Accueil() {
             <PhoneLink variant="ghost" label={`${business.phoneSecondaryDisplay} — atelier`} />
           </div>
 
-          <div className="mt-10 grid gap-6 text-sm text-papier/70 sm:grid-cols-3">
+          <div className="mt-10 grid gap-6 text-sm text-nuit/70 sm:grid-cols-3">
             <div>
               <p className="cartouche">À lire ensuite</p>
               <ul className="mt-3 space-y-2">
                 <li>
-                  <Link href={`/${primaryPrestationSlug}`} className="hover:text-ciel">
+                  <Link href={`/${primaryPrestationSlug}`} className="hover:text-encre">
                     Réfection de toiture en ardoise à Angers
                   </Link>
                 </li>
                 <li>
-                  <Link href="/couvreur-angers" className="hover:text-ciel">
+                  <Link href="/couvreur-angers" className="hover:text-encre">
                     Couvreur à Angers — le contexte local
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#prestations" className="hover:text-ciel">
+                  <Link href="/#prestations" className="hover:text-encre">
                     Le répertoire complet de l’atelier
                   </Link>
                 </li>
@@ -494,7 +497,7 @@ export default function Accueil() {
                 <br />
                 {business.address.postalCode} {business.address.city}
                 <br />
-                <a href={`mailto:${business.email}`} className="hover:text-ciel">
+                <a href={`mailto:${business.email}`} className="hover:text-encre">
                   {business.email}
                 </a>
               </address>

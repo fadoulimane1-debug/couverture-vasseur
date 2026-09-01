@@ -10,8 +10,9 @@
   --ciel: #6ba6ff;
   --papier: #eef1f5;
   --papier-2: #e2e7ee;
+  --fond: #fafaf8;
   --laiton: #c08a3e;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @layer base {
@@ -21,8 +22,8 @@
   }
 
   body {
-    background-color: var(--nuit);
-    color: var(--papier);
+    background-color: var(--fond);
+    color: var(--nuit);
     font-family: var(--font-sans), system-ui, sans-serif;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
@@ -38,6 +39,7 @@
     line-height: 1.08;
     letter-spacing: -0.015em;
     text-wrap: balance;
+    color: var(--nuit);
   }
 
   a {
@@ -45,31 +47,55 @@
   }
 
   ::selection {
-    background: var(--ciel);
-    color: var(--nuit);
+    background: var(--encre);
+    color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--ciel);
+    outline: 2px solid var(--encre);
     outline-offset: 3px;
     border-radius: 2px;
   }
 }
 
 @layer components {
-  /* Fond « papier millimétré » du plan de couverture. */
+  /* Zones sombres : bandeau d'ouverture et pied de page uniquement. */
+  .tone-dark {
+    color: var(--papier);
+  }
+  .tone-dark h1,
+  .tone-dark h2,
+  .tone-dark h3,
+  .tone-dark h4 {
+    color: var(--papier);
+  }
+  .tone-dark .cartouche {
+    color: var(--ciel);
+  }
+  .tone-dark .hairline {
+    border-color: rgba(107, 166, 255, 0.28);
+  }
+
+  /* Fond « papier millimétré » — lignes sombres sur fond clair par défaut, */
+  /* lignes bleu clair quand la zone est sombre. */
   .blueprint-grid {
     background-image:
-      linear-gradient(rgba(107, 166, 255, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(107, 166, 255, 0.07) 1px, transparent 1px);
+      linear-gradient(rgba(12, 19, 28, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(12, 19, 28, 0.05) 1px, transparent 1px);
     background-size: 34px 34px;
     background-position: -1px -1px;
   }
+  .tone-dark .blueprint-grid,
+  .blueprint-grid.tone-dark {
+    background-image:
+      linear-gradient(rgba(107, 166, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(107, 166, 255, 0.08) 1px, transparent 1px);
+  }
 
-  /* Filet fin bleu — séparateur de section, avec repère laiton à gauche. */
+  /* Filet fin de séparation de section, avec repère laiton à gauche. */
   .hairline {
     position: relative;
-    border-top: 1px solid rgba(107, 166, 255, 0.28);
+    border-top: 1px solid rgba(12, 19, 28, 0.14);
   }
   .hairline::before {
     content: '';
@@ -87,18 +113,18 @@
     font-size: 0.7rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ciel);
+    color: var(--encre);
   }
 
-  /* Panneau clair : bloc de texte long posé comme un plan sur l'établi. */
+  /* Panneau : bloc de texte long, légèrement surélevé sur le fond clair. */
   .panneau {
-    background: var(--papier);
+    background: #ffffff;
     color: #1a2230;
-    border: 1px solid var(--papier-2, #e2e7ee);
-    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(12, 19, 28, 0.08);
+    box-shadow: 0 12px 44px -26px rgba(12, 19, 28, 0.22);
   }
 
-  /* Corps de texte éditorial pour les longues sections SEO. */
+  /* Corps de texte éditorial pour les longues sections. */
   .prose-vasseur {
     max-width: 68ch;
   }
@@ -118,13 +144,13 @@
   }
   .prose-vasseur p,
   .prose-vasseur li {
-    color: #2b3646;
+    color: #333b47;
   }
   .prose-vasseur strong {
     color: #0c131c;
   }
   .prose-vasseur a {
-    color: var(--encre-fonce, #004a99);
+    color: var(--encre-fonce);
     text-decoration: underline;
     text-underline-offset: 2px;
     text-decoration-thickness: 1px;

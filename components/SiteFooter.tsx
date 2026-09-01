@@ -5,7 +5,7 @@ import { business, communes, prestations, primaryPrestationSlug } from '@/lib/si
 export default function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-ciel/15 bg-nuit-2">
+    <footer className="tone-dark border-t border-nuit/10 bg-nuit-2">
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
@@ -71,13 +71,13 @@ export default function SiteFooter() {
                 <a href={business.phoneHref} className="hover:text-ciel">
                   {business.phoneDisplay}
                 </a>{' '}
-                <span className="text-papier/40">— {business.founderFirstName}</span>
+                <span className="text-papier/60">— {business.founderFirstName}</span>
               </li>
               <li>
                 <a href={business.phoneSecondaryHref} className="hover:text-ciel">
                   {business.phoneSecondaryDisplay}
                 </a>{' '}
-                <span className="text-papier/40">— atelier</span>
+                <span className="text-papier/60">— atelier</span>
               </li>
               <li>
                 <a href={`mailto:${business.email}`} className="hover:text-ciel">
@@ -98,7 +98,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="hairline mt-12 pt-6 text-xs text-papier/45">
+        <div className="hairline mt-12 pt-6 text-xs text-papier/65">
           <p>
             {business.trust.qualibat} · {business.trust.decennale}.
           </p>

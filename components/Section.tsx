@@ -24,9 +24,9 @@ export default function Section({ id, eyebrow, title, intro, children, tone = 'n
           <p className="cartouche">{eyebrow}</p>
         </div>
         <div>
-          <h2 className="text-balance text-3xl text-papier md:text-[2.6rem]">{title}</h2>
+          <h2 className="text-balance text-3xl text-nuit md:text-[2.6rem]">{title}</h2>
           {intro ? (
-            <div className="mt-4 max-w-prose2 text-[1.05rem] text-papier/75">{intro}</div>
+            <div className="mt-4 max-w-prose2 text-[1.05rem] text-nuit/70">{intro}</div>
           ) : null}
           <div className={tone === 'panneau' ? 'mt-8' : 'mt-8'}>{children}</div>
         </div>

@@ -68,11 +68,11 @@ export default function CouvreurAngers() {
       />
 
       {/* H1 angle local */}
-      <section className="blueprint-grid border-b border-ciel/15">
+      <section className="tone-dark bg-nuit blueprint-grid border-b border-nuit/10">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-14 md:pt-20">
           <nav aria-label="Fil d’Ariane" className="cartouche">
             <Link href="/" className="hover:text-papier">Accueil</Link>
-            <span className="mx-2 text-papier/30">/</span>
+            <span className="mx-2 text-papier/45">/</span>
             <span className="text-papier/60">Couvreur à Angers</span>
           </nav>
           <h1 className="mt-4 max-w-4xl text-[2.2rem] leading-[1.07] text-papier sm:text-5xl md:text-[3.6rem]">
@@ -161,7 +161,7 @@ export default function CouvreurAngers() {
         title="Là où on regarde d’abord, sur une toiture d’ici"
         intro="Sur le bâti angevin, ce sont toujours les mêmes endroits qui lâchent. On y va directement."
       >
-        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+        <div className="grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 md:grid-cols-2">
           {[
             { t: 'Le faîtage et les rives', d: 'Sur les toitures anciennes à faîtage scellé, on cherche le mortier éclaté, les faîtières qui bougent, les rives descellées côté vent dominant (ouest–sud-ouest).' },
             { t: 'Les noues et les arêtiers', d: 'Toitures à croupe et à la Mansart des faubourgs : état du zinc de noue, recouvrement des ardoises biaisées, présence de percements et de traces d’écoulement.' },
@@ -170,9 +170,9 @@ export default function CouvreurAngers() {
             { t: 'L’écran de sous-toiture', d: 'Présent ou absent ? Déchiré ? Sur beaucoup de toits angevins il n’y en a pas : on en tient compte pour la suite du diagnostic.' },
             { t: 'Les entrées d’eau en pignon mitoyen', d: 'Raccord contre le mur du voisin, solin partagé, différence de niveau de couverture d’une maison à l’autre : point sensible du bâti mitoyen.' },
           ].map((f) => (
-            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
-              <h3 className="font-display text-lg text-papier">{f.t}</h3>
-              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
+            <div key={f.t} className="bg-white p-6 md:p-7">
+              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
         </div>
@@ -325,26 +325,26 @@ export default function CouvreurAngers() {
         title="Les communes où on intervient aussi"
         intro="Mêmes gestes, mêmes exigences — avec des contraintes d’accès et d’urbanisme souvent plus souples qu’intra-muros."
       >
-        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
+        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 sm:grid-cols-2">
           {limitrophes.map((c) => (
-            <li key={c.name} className="bg-nuit-2 p-5">
-              <span className="font-display text-lg text-papier">Couvreur {c.name}</span>
-              <span className="ml-2 font-mono text-[0.72rem] text-ciel/70">{c.cp}</span>
-              <p className="mt-1 text-sm text-papier/65">{c.note}</p>
+            <li key={c.name} className="bg-white p-5">
+              <span className="font-display text-lg text-nuit">Couvreur {c.name}</span>
+              <span className="ml-2 font-mono text-[0.72rem] text-encre">{c.cp}</span>
+              <p className="mt-1 text-sm text-nuit/65">{c.note}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-sm text-papier/60">
+        <p className="mt-6 text-sm text-nuit/60">
           Voir aussi :{' '}
-          <Link href={`/${primaryPrestationSlug}`} className="text-ciel underline underline-offset-2">
+          <Link href={`/${primaryPrestationSlug}`} className="text-encre-fonce underline underline-offset-2 hover:text-encre">
             réfection de toiture en ardoise à Angers
           </Link>{' '}
           ·{' '}
-          <Link href="/#prestations" className="text-ciel underline underline-offset-2">
+          <Link href="/#prestations" className="text-encre-fonce underline underline-offset-2 hover:text-encre">
             le répertoire de l’atelier
           </Link>{' '}
           ·{' '}
-          <Link href="/#devis" className="text-ciel underline underline-offset-2">
+          <Link href="/#devis" className="text-encre-fonce underline underline-offset-2 hover:text-encre">
             demander un devis
           </Link>
           .

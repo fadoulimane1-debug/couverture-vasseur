@@ -21,7 +21,7 @@ export default function Figure({
   className = '',
 }: Props) {
   return (
-    <figure className={`overflow-hidden rounded-[4px] border border-ciel/20 bg-nuit-2 ${className}`}>
+    <figure className={`overflow-hidden rounded-[4px] border border-nuit/12 bg-white ${className}`}>
       <Image
         src={src}
         alt={alt}
@@ -32,7 +32,7 @@ export default function Figure({
         sizes="(max-width: 768px) 100vw, 640px"
       />
       {caption ? (
-        <figcaption className="border-t border-ciel/15 px-4 py-3 font-mono text-[0.72rem] uppercase tracking-label text-ciel/80">
+        <figcaption className="border-t border-nuit/12 px-4 py-3 font-mono text-[0.72rem] uppercase tracking-label text-encre">
           {caption}
         </figcaption>
       ) : null}
