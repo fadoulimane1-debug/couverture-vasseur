@@ -99,7 +99,8 @@ au chargement (désactivée si `prefers-reduced-motion`).
    reprend le motif du toit du logo. Ne pas reposer le logo directement sur le
    fond nuit : le texte bleu-nuit y devient illisible.
 2. **`lib/site.ts`** — téléphone, e-mail, adresse, SIRET, n° Qualibat et
-   décennale, nombre et note d’avis : valeurs **crédibles mais inventées**.
+   décennale, nombre et note d’avis, **et les trois témoignages (`temoignages`)** :
+   valeurs **crédibles mais inventées**, à remplacer par de vrais avis Google.
 3. **Photos de chantier** — les fichiers `public/img/chantier-*.svg` sont des
    relevés de principe. Les remplacer par de vraies photos avant/après
    (`next/image`, `alt` obligatoire) quand elles sont disponibles.

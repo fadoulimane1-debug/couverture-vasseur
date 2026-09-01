@@ -6,6 +6,8 @@ import Faq from '@/components/Faq';
 import Figure from '@/components/Figure';
 import DevisBand from '@/components/DevisBand';
 import PhoneLink from '@/components/PhoneLink';
+import PriceTable from '@/components/PriceTable';
+import Testimonials from '@/components/Testimonials';
 import RoofSection from '@/components/RoofSection';
 import Jsonld from '@/components/Jsonld';
 import { faqSchema } from '@/lib/schema';
@@ -126,28 +128,30 @@ export default function Accueil() {
       <section className="tone-dark bg-nuit blueprint-grid border-b border-nuit/10">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-16 md:pt-20">
           <p className="cartouche">Angers · Anjou · Maine-et-Loire 49</p>
-          <h1 className="mt-4 max-w-4xl text-[2.6rem] leading-[1.05] text-papier sm:text-6xl md:text-[4.4rem]">
-            Couvreur zingueur à Angers
-          </h1>
+          <h1 className="mt-4 max-w-4xl text-papier">Couvreur zingueur à Angers</h1>
           <p className="mt-6 max-w-2xl text-lg text-papier/80 md:text-xl">
             La toiture ancienne d’Angers, reprise dans les règles de l’ardoise
             d’Anjou — par l’artisan qui monte lui-même sur le toit.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <PhoneLink label={`Appeler — ${business.phoneDisplay}`} />
             <Link
               href="#devis"
-              className="inline-flex items-center rounded-[2px] border border-ciel/40 px-5 py-3 font-mono text-[0.78rem] uppercase tracking-label text-ciel hover:bg-ciel/10"
+              className="inline-flex items-center justify-center gap-2 rounded-[2px] bg-papier px-5 py-3 font-mono text-[0.78rem] uppercase tracking-label text-nuit transition-all duration-150 hover:-translate-y-px hover:bg-white"
             >
               Devis gratuit sous 48 h
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
 
-          <p className="mt-5 font-mono text-[0.72rem] uppercase tracking-label text-papier/55">
-            RGE Qualibat · Garantie décennale · {business.trust.rating}/5 sur{' '}
-            {business.trust.reviewCount} avis Google · {business.since}
-          </p>
+          {/* Gages de confiance dès le premier écran */}
+          <div className="badge-row mt-7">
+            <span className="badge"><b>RGE</b> Qualibat</span>
+            <span className="badge"><b>Décennale</b> MMA</span>
+            <span className="badge"><b>{business.trust.rating}/5</b> · {business.trust.reviewCount} avis Google</span>
+            <span className="badge"><b>{business.yearsLabel}</b></span>
+          </div>
 
           <RoofSection className="mt-12 rounded-[4px] border border-ciel/15 bg-nuit-2/60 p-4 text-ciel md:mt-16 md:p-8" />
         </div>
@@ -224,6 +228,20 @@ export default function Accueil() {
                 volume qu’on peut prendre — c’est le prix de la finition.
               </p>
             </div>
+
+            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 sm:grid-cols-4">
+              {[
+                { k: `${new Date().getFullYear() - business.foundingYear} ans`, v: 'installé à Angers' },
+                { k: `~${business.trust.roofsPerYear}`, v: 'toitures / an' },
+                { k: 'Compagnon', v: 'du Devoir · Tour de France' },
+                { k: 'RGE', v: 'Qualibat — certifié à titre personnel' },
+              ].map((s) => (
+                <div key={s.v} className="bg-white p-4">
+                  <dt className="font-display text-lg text-encre">{s.k}</dt>
+                  <dd className="mt-1 text-xs text-nuit/65">{s.v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </Section>
@@ -234,13 +252,14 @@ export default function Accueil() {
         eyebrow="Au répertoire de l’atelier"
         title="Huit métiers, une seule main sur le toit"
         intro="Du relevé de charpente à la dernière soudure d’étain, tout passe par l’équipe. Rien n’est confié à un tâcheron de passage."
+        note={['RGE Qualibat', 'Garantie décennale', 'Aucune sous-traitance']}
       >
         <div className={`${gridWrap} md:grid-cols-2`}>
           {prestations.map((p) => {
             const isPage = p.slug === primaryPrestationSlug;
             return (
               <div key={p.slug} className="bg-white p-6 md:p-7">
-                <h3 className="font-display text-xl text-nuit">
+                <h3 className="text-[1.05rem] text-nuit">
                   {isPage ? (
                     <Link href={`/${primaryPrestationSlug}`} className="hover:text-encre">
                       {p.titre} →
@@ -270,7 +289,7 @@ export default function Accueil() {
             <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
               <Figure src={c.src} alt={c.alt} caption={c.caption} />
               <div>
-                <h3 className="font-display text-xl text-nuit">{c.titre}</h3>
+                <h3 className="text-[1.05rem] text-nuit">{c.titre}</h3>
                 <p className="mt-3 text-nuit/70">{c.texte}</p>
               </div>
             </article>
@@ -305,35 +324,41 @@ export default function Accueil() {
         eyebrow="Ce qui pèse sur le devis"
         title="Pourquoi deux toitures de même surface ne coûtent pas pareil"
         intro="Un prix au mètre carré ne dit rien tant qu’on n’a pas vu le toit. Voici les quatre facteurs qui déplacent vraiment un devis, et des fourchettes pour situer votre projet."
+        note={['Devis gratuit sous 48 h', 'Déplacement offert', 'Prix ferme après visite']}
       >
         <div className={`${gridWrap} md:grid-cols-2`}>
           {facteursPrix.map((f) => (
             <div key={f.t} className="bg-white p-6 md:p-7">
-              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <h3 className="text-nuit">{f.t}</h3>
               <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
         </div>
 
         <div className="panneau mt-8 rounded-[4px] p-6 md:p-10">
-          <div className="prose-vasseur">
-            <p><strong>Fourchettes indicatives, agglomération d’Angers, 2026 —</strong> à confirmer après visite :</p>
-            <ul>
-              <li>Réfection complète en ardoise naturelle d’Anjou : <strong>180 à 320 €/m²</strong>, dépose comprise.</li>
-              <li>Réfection en ardoise fibre-ciment : <strong>120 à 190 €/m²</strong>.</li>
-              <li>Remplacement ponctuel d’ardoises, reprise de faîtage : <strong>250 à 600 €</strong> l’intervention.</li>
-              <li>Recherche de fuite avec compte rendu photos : <strong>150 à 350 €</strong>.</li>
-              <li>Gouttière zinc demi-ronde posée : <strong>55 à 90 €/ml</strong>.</li>
-              <li>Démoussage, brossage et traitement hydrofuge : <strong>18 à 35 €/m²</strong>.</li>
-              <li>Fenêtre de toit fournie et posée : <strong>900 à 1 800 €</strong> selon dimensions.</li>
-              <li>Échafaudage : <strong>8 à 15 €/m²</strong> de façade, ou forfait selon la durée.</li>
-            </ul>
-            <p>
-              Reprise de charpente, traitement de bois, isolation par sarking :
-              postes chiffrés à part, jamais imposés sans qu’on vous montre ce qui
-              les justifie.
-            </p>
+          <p className="text-sm text-nuit/70">
+            <strong className="text-nuit">Fourchettes indicatives</strong> ·
+            agglomération d’Angers · 2026 — à confirmer après visite.
+          </p>
+          <div className="mt-5">
+            <PriceTable
+              rows={[
+                { poste: 'Réfection complète en ardoise naturelle d’Anjou, dépose comprise', prix: '180–320 €/m²' },
+                { poste: 'Réfection en ardoise fibre-ciment', prix: '120–190 €/m²' },
+                { poste: 'Remplacement ponctuel d’ardoises, reprise de faîtage', prix: '250–600 €' },
+                { poste: 'Recherche de fuite avec compte rendu photos', prix: '150–350 €' },
+                { poste: 'Gouttière zinc demi-ronde posée', prix: '55–90 €/ml' },
+                { poste: 'Démoussage, brossage et traitement hydrofuge', prix: '18–35 €/m²' },
+                { poste: 'Fenêtre de toit fournie et posée', prix: '900–1 800 €' },
+                { poste: 'Échafaudage', prix: '8–15 €/m²' },
+              ]}
+            />
           </div>
+          <p className="mt-5 text-sm text-nuit/60">
+            Reprise de charpente, traitement de bois, isolation par sarking :
+            postes chiffrés à part, jamais imposés sans qu’on vous montre ce qui
+            les justifie.
+          </p>
         </div>
       </Section>
 
@@ -360,6 +385,8 @@ export default function Accueil() {
           Numéro de certificat RGE et références d’assurance — {business.trust.qualibat}, {business.trust.decennale} — transmis sans détour, à
           l’écrit, avec le devis.
         </p>
+
+        <Testimonials />
       </Section>
 
       {/* Garanties */}
@@ -367,6 +394,7 @@ export default function Accueil() {
         eyebrow="Après le repli de l’échafaudage"
         title="Ce qui reste écrit une fois le chantier fini"
         intro="Quand le camion est parti, il reste des papiers. Voici lesquels — et ce sur quoi vous pouvez compter pendant les travaux."
+        note={['Garantie décennale', 'RC pro & exploitation', 'Urgence sous 24–48 h']}
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -440,17 +468,13 @@ export default function Accueil() {
         <Faq items={faq} />
       </Section>
 
-      {/* Bloc devis — bas de page (« Devis gratuit sous 48 h ») */}
-      <DevisBand
-        id="devis-bas"
-        title="Un devis se fait sur le toit, pas au téléphone"
-        intro="Le seul moyen de chiffrer juste, c’est de monter voir. Laissez vos coordonnées, on cale la visite cette semaine."
-      />
+      {/* Bloc devis — bas de page, identique au bloc du haut (reconnaissance immédiate) */}
+      <DevisBand id="devis-bas" />
 
       {/* Rappel de contact + maillage interne */}
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <div className="hairline pt-8">
-          <h2 className="text-3xl text-nuit md:text-4xl">Le plus court chemin, c’est le téléphone</h2>
+          <h2 className="text-nuit">Le plus court chemin, c’est le téléphone</h2>
           <p className="mt-4 max-w-prose2 text-nuit/70">
             {business.founderFirstName} décroche lui-même, du lundi au vendredi de
             7 h 30 à 18 h 30 et le samedi matin. Pour une urgence, appelez plutôt

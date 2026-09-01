@@ -113,11 +113,8 @@ export default function RefectionArdoise() {
         </div>
       </section>
 
-      {/* Bloc devis en tête (« Devis gratuit sous 48 h ») */}
-      <DevisBand
-        title="À la visite, on relève avant de chiffrer"
-        intro="Pour une réfection en ardoise, tout se joue sur le toit : pente, charpente, accès. Laissez vos coordonnées, Julien vient prendre les cotes cette semaine."
-      />
+      {/* Bloc devis en tête — identique sur tout le site (« Devis gratuit sous 48 h ») */}
+      <DevisBand />
 
       {/* Signes d'alerte — on ouvre sur le vécu du lecteur */}
       <Section
@@ -291,7 +288,7 @@ export default function RefectionArdoise() {
             { t: 'Le choix de l’ardoise', d: 'Ardoise naturelle d’Anjou, ardoise d’importation, ardoise fibre-ciment de teinte proche : la fourniture varie du simple au double, et le mode de pose avec.' },
           ].map((f) => (
             <div key={f.t} className="bg-white p-6 md:p-7">
-              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <h3 className="text-nuit">{f.t}</h3>
               <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
@@ -305,17 +302,24 @@ export default function RefectionArdoise() {
         intro="Refaire un toit modifie l’aspect extérieur d’un bâtiment : il y a presque toujours une formalité d’urbanisme. On la prend en charge."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
-          <div className="prose-vasseur">
-            <p>
-              Trois cas de figure se cumulent souvent à Angers : la
-              <strong> déclaration préalable</strong> de travaux, l’avis de
-              l’<strong>Architecte des Bâtiments de France</strong> dans le centre
-              historique, et le passage en <strong>assemblée générale</strong> si
-              le bien est en copropriété. Ajoutez, si l’échafaudage est sur
-              trottoir, une <strong>autorisation d’occupation du domaine public</strong>.
-              Le devis intègre les délais correspondants.
-            </p>
-          </div>
+          <p className="text-sm text-nuit/70">
+            Jusqu’à quatre formalités peuvent se cumuler à Angers. On les prépare
+            et on les dépose ; le devis intègre les délais.
+          </p>
+          <dl className="mt-5 grid gap-px overflow-hidden rounded-[3px] border border-nuit/12 bg-nuit/12 sm:grid-cols-2">
+            {[
+              { d: '~1 mois', t: 'Déclaration préalable de travaux', s: 'systématique dès que l’aspect extérieur change' },
+              { d: '+1 mois', t: 'Avis de l’Architecte des Bâtiments de France', s: 'en Site patrimonial remarquable (centre)' },
+              { d: 'variable', t: 'Vote en assemblée générale', s: 'si le bien est en copropriété' },
+              { d: '~2 sem.', t: 'Autorisation d’occupation du domaine public', s: 'si l’échafaudage est sur trottoir' },
+            ].map((f) => (
+              <div key={f.t} className="bg-white p-5">
+                <dt className="font-mono text-sm font-bold text-encre">{f.d}</dt>
+                <dd className="mt-1 text-[0.95rem] font-semibold text-nuit">{f.t}</dd>
+                <dd className="text-sm text-nuit/65">{f.s}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </Section>
 
@@ -435,12 +439,8 @@ export default function RefectionArdoise() {
         </ul>
       </Section>
 
-      {/* Bloc devis (bas) */}
-      <DevisBand
-        id="devis-bas"
-        title="Faire monter Julien sur votre toit"
-        intro="Un métré sérieux sur place, un devis clair sous 48 h, les autorisations gérées. C’est ainsi que démarre une réfection en ardoise."
-      />
+      {/* Bloc devis (bas) — identique au bloc du haut */}
+      <DevisBand id="devis-bas" />
     </>
   );
 }

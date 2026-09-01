@@ -30,16 +30,33 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Échelle typographique — H1 > H2 > H3 nettement distincts (taille + graisse). */
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-display), Georgia, serif;
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.015em;
     text-wrap: balance;
     color: var(--nuit);
+  }
+  h1 {
+    font-size: clamp(2.5rem, 1.7rem + 3.3vw, 4.4rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 1.25rem + 1.9vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+  }
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    color: #12202f;
   }
 
   a {
@@ -181,6 +198,128 @@
   .prose-vasseur ol li::marker {
     font-family: var(--font-mono), monospace;
     color: var(--encre);
+  }
+
+  /* Bandeau de badges de confiance (hero). */
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgba(107, 166, 255, 0.35);
+    border-radius: 2px;
+    padding: 0.4rem 0.7rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--papier);
+    background: rgba(107, 166, 255, 0.08);
+  }
+  .badge b {
+    color: var(--ciel);
+    font-weight: 700;
+  }
+
+  /* Rappel de réassurance discret, sous l'intro de quelques sections. */
+  .reassure {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--encre-fonce);
+  }
+  .reassure span {
+    position: relative;
+    padding-left: 0.85rem;
+  }
+  .reassure span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 7px;
+    height: 2px;
+    background: var(--laiton);
+  }
+
+  /* FAQ en accordéon natif — réponse repliée par défaut, sans JavaScript. */
+  .faq details {
+    border-bottom: 1px solid rgba(12, 19, 28, 0.12);
+  }
+  .faq details:first-child {
+    border-top: 1px solid rgba(12, 19, 28, 0.12);
+  }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 0.25rem;
+    transition: color 0.15s ease;
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq summary:hover {
+    color: var(--encre);
+  }
+  .faq summary h3 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .faq summary .chev {
+    flex: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.15rem;
+    color: var(--encre);
+    transition: transform 0.2s ease;
+  }
+  .faq details[open] summary .chev {
+    transform: rotate(45deg);
+  }
+  .faq .answer {
+    padding: 0 0.25rem 1.3rem;
+    max-width: 68ch;
+    color: #333b47;
+  }
+
+  /* Tableau de prix scannable. */
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 0.25rem 1.5rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(12, 19, 28, 0.1);
+  }
+  .price-row:last-child {
+    border-bottom: 0;
+  }
+  .price-row .val {
+    font-family: var(--font-mono), monospace;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--encre);
+    white-space: nowrap;
+  }
+  @media (max-width: 480px) {
+    .price-row {
+      grid-template-columns: 1fr;
+    }
+    .price-row .val {
+      font-size: 1.15rem;
+    }
   }
 
   /* Trait qui se dessine au chargement de la coupe technique (signature). */

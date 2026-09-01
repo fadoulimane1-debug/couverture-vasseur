@@ -20,7 +20,7 @@ export default function DevisBand({
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1fr_1.15fr] md:px-8 md:py-20">
         <div>
           <p className="cartouche">Devis gratuit sous 48 h</p>
-          <h2 className="mt-3 text-3xl text-nuit md:text-4xl">{title}</h2>
+          <h2 className="mt-3 text-nuit">{title}</h2>
           <p className="mt-4 max-w-prose2 text-nuit/70">{intro}</p>
 
           <dl className="mt-8 grid gap-4 font-mono text-[0.8rem] text-nuit/70">

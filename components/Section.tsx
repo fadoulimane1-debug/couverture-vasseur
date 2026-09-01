@@ -5,15 +5,17 @@ type Props = {
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
+  /** Rappel de réassurance discret (ex. ['Devis gratuit sous 48 h', 'Garantie décennale']). */
+  note?: string[];
   children: ReactNode;
-  tone?: 'nuit' | 'panneau';
 };
 
 /**
  * Bloc de page avec cartouche (étiquette monospace) façon repère de plan.
  * Pas de numérotation : l'ordre des sections n'est pas une séquence.
+ * L'échelle typographique H2/H3 est portée par globals.css.
  */
-export default function Section({ id, eyebrow, title, intro, children, tone = 'nuit' }: Props) {
+export default function Section({ id, eyebrow, title, intro, note, children }: Props) {
   return (
     <section
       id={id}
@@ -24,11 +26,20 @@ export default function Section({ id, eyebrow, title, intro, children, tone = 'n
           <p className="cartouche">{eyebrow}</p>
         </div>
         <div>
-          <h2 className="text-balance text-3xl text-nuit md:text-[2.6rem]">{title}</h2>
+          <h2 className="text-balance">{title}</h2>
           {intro ? (
-            <div className="mt-4 max-w-prose2 text-[1.05rem] text-nuit/70">{intro}</div>
+            <div className="mt-4 max-w-prose2 text-[1.05rem] leading-relaxed text-nuit/70">
+              {intro}
+            </div>
           ) : null}
-          <div className={tone === 'panneau' ? 'mt-8' : 'mt-8'}>{children}</div>
+          {note && note.length ? (
+            <p className="reassure">
+              {note.map((n) => (
+                <span key={n}>{n}</span>
+              ))}
+            </p>
+          ) : null}
+          <div className="mt-10">{children}</div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { Fraunces, Inter, Space_Mono } from 'next/font/google';
 import './globals.css';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
+import MobileCta from '@/components/MobileCta';
 import Jsonld from '@/components/Jsonld';
 import { roofingContractorSchema } from '@/lib/schema';
 import { SITE_URL, business } from '@/lib/site';
@@ -81,8 +82,12 @@ export default function RootLayout({
           Aller au contenu
         </a>
         <SiteHeader />
-        <main id="contenu">{children}</main>
+        {/* pb-16 sur mobile : réserve la place de la barre d'action fixe */}
+        <main id="contenu" className="pb-16 sm:pb-0">
+          {children}
+        </main>
         <SiteFooter />
+        <MobileCta />
         <Jsonld data={roofingContractorSchema()} />
       </body>
     </html>

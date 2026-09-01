@@ -15,7 +15,7 @@ export default function Steps({
             <span className="font-mono text-sm text-encre">
               {String(i + 1).padStart(2, '0')}
             </span>
-            <h3 className="text-lg text-nuit">{it.t}</h3>
+            <h3 className="text-nuit">{it.t}</h3>
           </div>
           <p className="mt-2 text-[0.95rem] text-nuit/70">{it.d}</p>
         </li>

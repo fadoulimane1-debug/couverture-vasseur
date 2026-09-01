@@ -97,11 +97,8 @@ export default function CouvreurAngers() {
         </div>
       </section>
 
-      {/* Bloc devis en tête (« Devis gratuit sous 48 h ») */}
-      <DevisBand
-        title="L’adresse suffit pour venir voir"
-        intro="Une toiture angevine se lit sur place : orientation de la rue, mitoyenneté, état du faîtage. Donnez-nous l’adresse, on passe."
-      />
+      {/* Bloc devis en tête — identique sur tout le site (« Devis gratuit sous 48 h ») */}
+      <DevisBand />
 
       {/* Bâti réel de la ville */}
       <Section
@@ -171,7 +168,7 @@ export default function CouvreurAngers() {
             { t: 'Les entrées d’eau en pignon mitoyen', d: 'Raccord contre le mur du voisin, solin partagé, différence de niveau de couverture d’une maison à l’autre : point sensible du bâti mitoyen.' },
           ].map((f) => (
             <div key={f.t} className="bg-white p-6 md:p-7">
-              <h3 className="font-display text-lg text-nuit">{f.t}</h3>
+              <h3 className="text-nuit">{f.t}</h3>
               <p className="mt-2 text-sm text-nuit/70">{f.d}</p>
             </div>
           ))}
@@ -351,12 +348,8 @@ export default function CouvreurAngers() {
         </p>
       </Section>
 
-      {/* Bloc devis (bas) */}
-      <DevisBand
-        id="devis-bas"
-        title="Votre toiture angevine, vue par un couvreur d’ici"
-        intro="On connaît les rues, les guichets d’urbanisme et le bâti. Laissez vos coordonnées, on cale la visite."
-      />
+      {/* Bloc devis (bas) — identique au bloc du haut */}
+      <DevisBand id="devis-bas" />
     </>
   );
 }

@@ -60,6 +60,8 @@ export const business = {
     decennale: 'Garantie décennale MMA — contrat n° 148 562 301',
     urgenceDelay: 'intervention de mise hors d’eau sous 24 à 48 h',
     freeQuote: 'Devis gratuit sous 48 h',
+    roofsPerYear: 55,
+    compagnon: 'Compagnon du Devoir — Tour de France terminé',
   },
 
   social: {
@@ -145,6 +147,40 @@ export const prestations: {
 ];
 
 export const primaryPrestationSlug = 'refection-toiture-ardoise-angers';
+
+/** Avis clients (exemples pour la maquette — à remplacer par de vrais avis Google). */
+export const temoignages: {
+  nom: string;
+  ville: string;
+  note: number;
+  texte: string;
+  chantier: string;
+}[] = [
+  {
+    nom: 'Hélène R.',
+    ville: 'Angers, quartier de la Doutre',
+    note: 5,
+    texte:
+      'Toiture d’une maison ancienne refaite en ardoise, dossier ABF compris. Devis clair, chantier propre, planning tenu au jour près.',
+    chantier: 'Réfection complète · 92 m²',
+  },
+  {
+    nom: 'Michel T.',
+    ville: 'Avrillé',
+    note: 5,
+    texte:
+      'Julien est venu sous 48 h pour une fuite. Bâche le jour même, réparation la semaine suivante, prix conforme au devis. Rien à redire.',
+    chantier: 'Recherche de fuite + reprise de noue',
+  },
+  {
+    nom: 'Copropriété Bd Foch',
+    ville: 'Les Ponts-de-Cé',
+    note: 4.5,
+    texte:
+      'Il a présenté le chantier en assemblée générale et répondu à toutes les questions. La réfection s’est faite sans gêner les locataires.',
+    chantier: 'Toiture d’immeuble · vote en AG',
+  },
+];
 
 /** Image Open Graph partagée (générée par app/opengraph-image.tsx). */
 export const ogImages = [

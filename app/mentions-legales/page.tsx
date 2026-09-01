@@ -14,7 +14,7 @@ export default function MentionsLegales() {
   return (
     <section className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-24">
       <p className="cartouche">Informations légales</p>
-      <h1 className="mt-3 font-display text-4xl text-papier">Mentions légales</h1>
+      <h1 className="mt-3 font-display text-4xl text-nuit">Mentions légales</h1>
 
       <div className="panneau mt-8 rounded-[4px] p-6 md:p-10">
         <div className="prose-vasseur">
