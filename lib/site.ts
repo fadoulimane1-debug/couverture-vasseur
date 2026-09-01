@@ -4,9 +4,18 @@
  * confiance, la zone d'intervention et le catalogue de prestations.
  */
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
-  'https://couverture-vasseur.fr';
+/**
+ * URL publique du site, par ordre de priorité :
+ *  1. NEXT_PUBLIC_SITE_URL (à définir quand le domaine définitif est connu) ;
+ *  2. le domaine de production Vercel, disponible au build (dès le 1er déploiement) ;
+ *  3. valeur de repli.
+ */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'https://couverture-vasseur.fr')
+).replace(/\/$/, '');
 
 export const business = {
   name: 'Couverture Vasseur',
