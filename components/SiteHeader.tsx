@@ -14,15 +14,20 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-ciel/15 bg-nuit/90 backdrop-blur supports-[backdrop-filter]:bg-nuit/70">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="Couverture Vasseur — accueil">
-          <Image
-            src="/logo-couverture-vasseur.svg"
-            alt="Couverture Vasseur, artisan couvreur zingueur à Angers"
-            width={210}
-            height={31}
-            priority
-            className="h-8 w-auto"
-          />
+        <Link href="/" className="inline-flex" aria-label="Couverture Vasseur — accueil">
+          {/* Le logo est dessiné en bleu-nuit : il est posé sur une plaque
+              claire, comme un cartouche de plan, pour rester lisible sur le
+              fond nuit du site. */}
+          <span className="inline-flex rounded-[3px] bg-papier p-1.5 shadow-[0_12px_30px_-18px_rgba(0,0,0,0.75)]">
+            <Image
+              src="/logo-couverture-vasseur.png"
+              alt="Couverture Vasseur, artisan couvreur zingueur à Angers"
+              width={1347}
+              height={650}
+              priority
+              className="h-7 w-auto md:h-8"
+            />
+          </span>
         </Link>
 
         <div className="flex items-center gap-3 md:gap-5">

@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" rx="4" fill="#0C131C"/>
-  <g fill="none" stroke="#6BA6FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 22 L16 7 L27 22"/>
-    <path d="M10 22 L16 13 L22 22"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="13" fill="#0C131C"/>
+  <!-- versant gauche (ardoise sombre) -->
+  <path d="M27 14 L8 40 L8 45 L27 20 Z" fill="#22364C"/>
+  <!-- versant droit (bleu) -->
+  <path d="M27 14 L57 40 L57 45 L27 20 Z" fill="#0061C6"/>
+  <!-- ligne de bardage sur le versant droit -->
+  <path d="M35 20 L49 38" stroke="#0C131C" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- souche de cheminée -->
+  <path d="M41 15 L46 15 L46 28 L41 25 Z" fill="#141F2C" stroke="#2C4056" stroke-width="1"/>
+  <!-- filet de lumière sur l'arête -->
+  <path d="M27 14 L8 40 M27 14 L57 40" fill="none" stroke="#6BA6FF" stroke-width="0.9" stroke-opacity="0.55" stroke-linecap="round"/>
 </svg>

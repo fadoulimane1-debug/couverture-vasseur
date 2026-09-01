@@ -47,7 +47,8 @@ couverture-vasseur/
 │   ├── site.ts                          coordonnées, chiffres de confiance, zone, catalogue
 │   └── schema.ts                        constructeurs schema.org
 └── public/
-    ├── logo-couverture-vasseur.svg      LOGO PROVISOIRE (voir ci-dessous)
+    ├── logo-couverture-vasseur.png      logo client officiel (RGBA transparent, détouré)
+    ├── logo-og.png                      version réduite du logo, embarquée dans l'image OG
     └── img/*.svg                        schémas de chantier (relevés de principe, libres de droits)
 ```
 
@@ -90,10 +91,13 @@ au chargement (désactivée si `prefers-reduced-motion`).
 
 ## À remplacer avant mise en ligne réelle
 
-1. **`public/logo-couverture-vasseur.png`** — déposer le vrai logo fourni
-   (fond transparent, 1437×919). Puis, dans `components/SiteHeader.tsx` et
-   `lib/schema.ts`, pointer vers `/logo-couverture-vasseur.png`. Le SVG actuel
-   est un substitut lisible sur fond nuit.
+1. **Logo — intégré.** `public/logo-couverture-vasseur.png` est le logo client
+   officiel (détouré de son cadre transparent, ratio ~2,07:1). Il est dessiné
+   en bleu-nuit : dans l’en-tête et le pied de page il est posé sur une plaque
+   claire (`bg-papier`) façon cartouche de plan, et l’image Open Graph embarque
+   `public/logo-og.png` sur le même fond clair. Le favicon (`app/icon.svg`)
+   reprend le motif du toit du logo. Ne pas reposer le logo directement sur le
+   fond nuit : le texte bleu-nuit y devient illisible.
 2. **`lib/site.ts`** — téléphone, e-mail, adresse, SIRET, n° Qualibat et
    décennale, nombre et note d’avis : valeurs **crédibles mais inventées**.
 3. **Photos de chantier** — les fichiers `public/img/chantier-*.svg` sont des

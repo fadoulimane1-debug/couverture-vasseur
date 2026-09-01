@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'nodejs';
@@ -5,6 +7,12 @@ export const alt =
   'Couverture Vasseur — couvreur zingueur à Angers, spécialiste de l’ardoise d’Anjou';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+// Le logo (dessiné en bleu-nuit) est encodé en data URI et posé sur une
+// plaque claire dans la composition, pour rester lisible sur le fond nuit.
+const logoDataUri = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), 'public', 'logo-og.png'),
+).toString('base64')}`;
 
 export default function OgImage() {
   return new ImageResponse(
@@ -21,22 +29,18 @@ export default function OgImage() {
           fontFamily: 'Georgia, serif',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 20,
-            color: '#6BA6FF',
-            fontSize: 26,
-            letterSpacing: 6,
-            textTransform: 'uppercase',
-          }}
-        >
-          <svg width="54" height="40" viewBox="0 0 54 40" fill="none">
-            <path d="M4 34 L27 6 L50 34" stroke="#6BA6FF" strokeWidth="4" />
-            <path d="M14 34 L27 18 L40 34" stroke="#6BA6FF" strokeWidth="4" />
-          </svg>
-          Couverture Vasseur
+        <div style={{ display: 'flex' }}>
+          <div
+            style={{
+              display: 'flex',
+              background: '#EEF1F5',
+              borderRadius: 12,
+              padding: '16px 24px',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logoDataUri} width={300} height={145} alt="" />
+          </div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

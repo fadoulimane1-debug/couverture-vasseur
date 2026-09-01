@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 44" width="300" height="44" role="img" aria-label="Couverture Vasseur">
-  <g fill="none" stroke="#6BA6FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 30 L20 8 L36 30"/>
-    <path d="M11 30 L20 17 L29 30"/>
-  </g>
-  <text x="46" y="20" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#EEF1F5" letter-spacing="0.02em">Couverture</text>
-  <text x="46" y="38" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="#6BA6FF" letter-spacing="0.34em">VASSEUR</text>
-</svg>

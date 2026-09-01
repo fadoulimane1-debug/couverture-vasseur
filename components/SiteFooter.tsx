@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { business, communes, prestations, primaryPrestationSlug } from '@/lib/site';
 
 export default function SiteFooter() {
@@ -8,8 +9,14 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <p className="font-display text-lg text-papier">Couverture Vasseur</p>
-            <p className="mt-2 text-sm text-papier/65">
+            <Image
+              src="/logo-couverture-vasseur.png"
+              alt="Couverture Vasseur, artisan couvreur zingueur à Angers"
+              width={1347}
+              height={650}
+              className="h-11 w-auto rounded-[3px] bg-papier p-2"
+            />
+            <p className="mt-4 text-sm text-papier/65">
               {business.baseline}. {business.team}, {business.since}.
             </p>
             <address className="mt-4 not-italic text-sm text-papier/65">
