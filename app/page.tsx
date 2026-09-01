@@ -9,7 +9,7 @@ import PhoneLink from '@/components/PhoneLink';
 import RoofSection from '@/components/RoofSection';
 import Jsonld from '@/components/Jsonld';
 import { faqSchema } from '@/lib/schema';
-import { business, communes, prestations, primaryPrestationSlug } from '@/lib/site';
+import { business, communes, ogImages, prestations, primaryPrestationSlug } from '@/lib/site';
 
 export const metadata: Metadata = {
   title:
@@ -18,10 +18,14 @@ export const metadata: Metadata = {
     'Couvreur zingueur à Angers (49) : réfection de toiture en ardoise d’Anjou, recherche de fuite, zinguerie, démoussage. Artisan RGE Qualibat, garantie décennale, 47 avis 4,9/5. Devis gratuit sous 48 h.',
   alternates: { canonical: '/' },
   openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Couverture Vasseur',
     url: '/',
     title: 'Couvreur zingueur à Angers — Couverture Vasseur',
     description:
       'Réfection de toiture en ardoise d’Anjou et entretien des toitures anciennes à Angers et alentour. Devis gratuit sous 48 h.',
+    images: ogImages,
   },
 };
 

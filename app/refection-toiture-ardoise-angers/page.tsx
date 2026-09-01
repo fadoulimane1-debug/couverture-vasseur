@@ -7,7 +7,7 @@ import DevisBand from '@/components/DevisBand';
 import PhoneLink from '@/components/PhoneLink';
 import Jsonld from '@/components/Jsonld';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/schema';
-import { business, prestations, primaryPrestationSlug } from '@/lib/site';
+import { business, ogImages, prestations, primaryPrestationSlug } from '@/lib/site';
 
 const PATH = `/${primaryPrestationSlug}`;
 
@@ -17,10 +17,14 @@ export const metadata: Metadata = {
     'Réfection de toiture en ardoise d’Anjou à Angers : dépose complète, écran de sous-toiture, liteaunage, pose à crochet inox, points singuliers au plomb. Artisan RGE, décennale, devis gratuit sous 48 h.',
   alternates: { canonical: PATH },
   openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Couverture Vasseur',
     url: PATH,
     title: 'Réfection de toiture en ardoise à Angers — Couverture Vasseur',
     description:
       'Dépose et couverture neuve en ardoise d’Anjou sur les toitures anciennes d’Angers. Déclaration préalable, dossier ABF, devis détaillé poste par poste.',
+    images: ogImages,
   },
 };
 

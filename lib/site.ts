@@ -136,3 +136,13 @@ export const prestations: {
 ];
 
 export const primaryPrestationSlug = 'refection-toiture-ardoise-angers';
+
+/** Image Open Graph partagée (générée par app/opengraph-image.tsx). */
+export const ogImages = [
+  {
+    url: '/opengraph-image',
+    width: 1200,
+    height: 630,
+    alt: 'Couverture Vasseur — couvreur zingueur à Angers, spécialiste de l’ardoise d’Anjou',
+  },
+];

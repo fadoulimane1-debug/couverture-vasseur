@@ -7,7 +7,7 @@ import DevisBand from '@/components/DevisBand';
 import PhoneLink from '@/components/PhoneLink';
 import Jsonld from '@/components/Jsonld';
 import { breadcrumbSchema, faqSchema } from '@/lib/schema';
-import { business, communes, primaryPrestationSlug } from '@/lib/site';
+import { business, communes, ogImages, primaryPrestationSlug } from '@/lib/site';
 
 const PATH = '/couvreur-angers';
 const limitrophes = communes.filter((c) => c.name !== 'Angers');
@@ -15,13 +15,17 @@ const limitrophes = communes.filter((c) => c.name !== 'Angers');
 export const metadata: Metadata = {
   title: 'Couvreur à Angers (49) — Toitures anciennes & ardoise d’Anjou',
   description:
-    'Couvreur à Angers spécialiste des toitures anciennes : maisons de ville en tuffeau, secteur patrimonial de la Doutre et de la cité, ardoise d’Anjou. Diagnostic local, urbanisme ABF, devis gratuit sous 48 h.',
+    'Couvreur à Angers spécialiste des toitures anciennes et de l’ardoise d’Anjou : bâti en tuffeau, secteur patrimonial, urbanisme ABF. Diagnostic local et devis gratuit sous 48 h.',
   alternates: { canonical: PATH },
   openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Couverture Vasseur',
     url: PATH,
     title: 'Couvreur à Angers — toitures anciennes et ardoise d’Anjou',
     description:
       'Le bâti angevin, ses pathologies de toiture, ses contraintes d’accès en centre ancien et son urbanisme : la page ville de Couverture Vasseur.',
+    images: ogImages,
   },
 };
 
