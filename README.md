@@ -104,19 +104,46 @@ au chargement (désactivée si `prefers-reduced-motion`).
    relevés de principe. Les remplacer par de vraies photos avant/après
    (`next/image`, `alt` obligatoire) quand elles sont disponibles.
 4. **`NEXT_PUBLIC_SITE_URL`** — domaine définitif (canonical, OG, sitemap).
+   Tant qu’il n’est pas défini, le site utilise automatiquement le domaine de
+   production Vercel (`VERCEL_PROJECT_PRODUCTION_URL`).
 5. **Envoi des devis** — renseigner `RESEND_API_KEY`, `DEVIS_TO_EMAIL`,
    `DEVIS_FROM_EMAIL`. Sans clé, la demande est journalisée et l’utilisateur
    reçoit quand même une confirmation ; le site reste déployable.
 
+## Dépôt GitHub
+
+Avec GitHub CLI (`winget install --id GitHub.cli` puis `gh auth login`) :
+
+```bash
+cd ~/couverture-vasseur
+git branch -M main
+gh repo create couverture-vasseur --private --source=. --remote=origin --push
+```
+
+Sans `gh` : créer un dépôt vide sur github.com/new (nom `couverture-vasseur`), puis :
+
+```bash
+cd ~/couverture-vasseur
+git branch -M main
+git remote add origin https://github.com/<utilisateur>/couverture-vasseur.git
+git push -u origin main
+```
+
 ## Déploiement Vercel
 
 ```bash
-npm i -g vercel
-vercel            # prévisualisation
-vercel --prod     # production
+cd ~/couverture-vasseur
+npx vercel login            # authentification interactive (navigateur / code e-mail)
+npx vercel --prod           # 1er run : accepter les valeurs par défaut (framework Next.js détecté)
 ```
 
-Ou depuis le tableau de bord Vercel : *New Project* → importer le dépôt Git →
-framework **Next.js** détecté automatiquement → définir les variables
-d’environnement (`.env.example`) → *Deploy*. Aucune configuration supplémentaire
-n’est nécessaire (`next build` suffit).
+Le premier déploiement de production a déjà des URL canoniques/OG correctes
+(fallback sur le domaine Vercel). Pour figer un domaine explicite :
+
+```bash
+npx vercel env add NEXT_PUBLIC_SITE_URL production   # coller l’URL de prod, ex. https://couverture-vasseur.vercel.app
+npx vercel --prod                                     # redéployer pour prendre en compte la variable
+```
+
+Alternative sans CLI : tableau de bord Vercel → *New Project* → importer le
+dépôt GitHub → framework **Next.js** auto-détecté → *Deploy*.
