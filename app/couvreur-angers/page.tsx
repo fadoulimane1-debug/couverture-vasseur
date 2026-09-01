@@ -67,7 +67,7 @@ export default function CouvreurAngers() {
         ])}
       />
 
-      {/* 1 — H1 angle local */}
+      {/* H1 angle local */}
       <section className="blueprint-grid border-b border-ciel/15">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-14 md:pt-20">
           <nav aria-label="Fil d’Ariane" className="cartouche">
@@ -97,67 +97,90 @@ export default function CouvreurAngers() {
         </div>
       </section>
 
-      {/* 2 — Bloc devis en tête */}
+      {/* Bloc devis en tête (« Devis gratuit sous 48 h ») */}
       <DevisBand
-        title="Devis gratuit sous 48 h"
-        intro="Une toiture angevine se lit sur place : orientation de la rue, mitoyenneté, état du faîtage. Donnez-nous l’adresse, on vient voir."
+        title="L’adresse suffit pour venir voir"
+        intro="Une toiture angevine se lit sur place : orientation de la rue, mitoyenneté, état du faîtage. Donnez-nous l’adresse, on passe."
       />
 
-      {/* 3 — Bâti réel */}
+      {/* Bâti réel de la ville */}
       <Section
-        eyebrow="Le bâti"
-        title="Angers, une ville qui se couvre en ardoise"
-        intro="Le matériau n’est pas un choix de goût : c’est l’aboutissement d’une géographie et d’une histoire industrielle."
+        eyebrow="Lecture de rue"
+        title="Pourquoi Angers se couvre en ardoise, et pas autrement"
+        intro="Le matériau n’est pas une affaire de goût : il tient à la géologie du bassin et à cinq siècles d’exploitation ardoisière."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
             <p>
               Le centre d’Angers est fait de <strong>maisons de ville en
               tuffeau</strong> et en moellon de schiste, mitoyennes, hautes et
-              étroites, avec des toitures à deux pans, parfois à croupe, souvent
-              percées de lucarnes. Autour, les faubourgs — Saint-Jacques,
-              Madeleine, La Fayette, Doutre — alignent des maisons de rapport de
-              la fin du XIXᵉ, à combles brisés et zinguerie ouvragée. Plus loin,
-              la couronne pavillonnaire mélange l’ardoise et la tuile.
+              étroites, coiffées de toitures à deux pans, parfois à croupe,
+              souvent percées de lucarnes. Autour, les faubourgs —
+              Saint-Jacques, Madeleine, La Fayette, Doutre — alignent des maisons
+              de rapport de la fin du XIXᵉ, à combles brisés et zinguerie
+              ouvragée. Plus loin, la couronne pavillonnaire mêle l’ardoise et la
+              tuile.
             </p>
             <p>
               Sur tout cet ensemble, l’<strong>ardoise</strong> domine. Elle
-              venait des <strong>carrières de Trélazé et de l’Anjou</strong>, à
-              quelques kilomètres, qui ont couvert la région pendant plus de
-              cinq siècles. C’est une ardoise de schiste bleu-noir, fine et
-              dense, qui prend une patine mate sans se déliter. Les règlements
-              d’urbanisme du centre l’ont figée comme référence : sur une maison
-              ancienne d’Angers, on repart en ardoise naturelle, au format
-              traditionnel, avec un faîtage et des rives dans l’esprit du
-              quartier.
+              sortait des <strong>carrières de Trélazé et de l’Anjou</strong>, à
+              quelques kilomètres, qui ont couvert la région pendant plus de cinq
+              siècles : un schiste bleu-noir, fin et dense, qui prend une patine
+              mate sans se déliter. Les règlements d’urbanisme du centre l’ont
+              gravée comme référence — sur une maison ancienne d’Angers, on
+              repart en ardoise naturelle, au format traditionnel, avec un
+              faîtage et des rives dans l’esprit du quartier.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* 4 — Pathologies locales */}
+      {/* Pathologies fréquentes localement */}
       <Section
-        eyebrow="Diagnostic local"
-        title="Les désordres qu’on retrouve toit après toit ici"
-        intro="Le bâti mitoyen, l’humidité des vallées et l’âge des couvertures créent une série de pathologies récurrentes."
+        eyebrow="Ce qui lâche ici"
+        title="Les désordres qui reviennent, d’un toit angevin à l’autre"
+        intro="Bâti mitoyen, humidité des basses vallées, couvertures qui ont passé l’âge : les mêmes défauts se répètent d’une maison à la suivante."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
             <ul>
               <li><strong>Mousse et rétention d’eau sur les versants nord</strong> et dans les rues encaissées : l’ardoise sèche mal, gèle, et les crochets se corrodent plus vite.</li>
               <li><strong>Fuites en pignon mitoyen</strong> : le solin contre le mur du voisin a fatigué, ou une reprise de couverture côté voisin a laissé un point faible.</li>
-              <li><strong>Noues et arêtiers fatigués</strong> sur les toitures à croupe et à la Mansart, très présentes dans les faubourgs : le zinc de noue a quarante ans et se perce.</li>
+              <li><strong>Noues et arêtiers fatigués</strong> sur les toitures à croupe et à la Mansart des faubourgs : le zinc de noue a quarante ans et se perce.</li>
               <li><strong>Faîtages au mortier éclaté</strong> : les toitures anciennes ont un faîtage scellé, sensible au gel et au vent ; il descend rang par rang.</li>
               <li><strong>Zingueries de descente sous-dimensionnées</strong> ou disjointes sur les maisons de rapport, avec ruissellement sur la façade en tuffeau — qui se creuse.</li>
-              <li><strong>Écran de sous-toiture absent</strong> : sur beaucoup de toitures d’avant 1980, il n’y a rien entre l’ardoise et les combles ; la moindre ardoise cassée laisse entrer l’eau.</li>
+              <li><strong>Écran de sous-toiture absent</strong> : sur beaucoup de toitures d’avant 1980, rien entre l’ardoise et les combles ; la moindre ardoise cassée laisse entrer l’eau.</li>
             </ul>
           </div>
         </div>
       </Section>
 
-      {/* 5 — Accès */}
+      {/* Points vérifiés en premier — enchaîne directement sur les pathologies */}
       <Section
-        eyebrow="Contraintes de chantier"
+        eyebrow="Premiers regards"
+        title="Là où on regarde d’abord, sur une toiture d’ici"
+        intro="Sur le bâti angevin, ce sont toujours les mêmes endroits qui lâchent. On y va directement."
+      >
+        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+          {[
+            { t: 'Le faîtage et les rives', d: 'Sur les toitures anciennes à faîtage scellé, on cherche le mortier éclaté, les faîtières qui bougent, les rives descellées côté vent dominant (ouest–sud-ouest).' },
+            { t: 'Les noues et les arêtiers', d: 'Toitures à croupe et à la Mansart des faubourgs : état du zinc de noue, recouvrement des ardoises biaisées, présence de percements et de traces d’écoulement.' },
+            { t: 'Les solins de souche', d: 'Cheminées souvent multiples et hautes : mortier des solins, bandes de recouvrement au plomb, closoir arrière, souche fissurée qui prend l’eau par le conduit.' },
+            { t: 'L’égout et la première rangée', d: 'Doublis, about de chevrons, bavette en zinc, alignement de la gouttière : c’est là que la rétention de mousse fait le plus de dégâts.' },
+            { t: 'L’écran de sous-toiture', d: 'Présent ou absent ? Déchiré ? Sur beaucoup de toits angevins il n’y en a pas : on en tient compte pour la suite du diagnostic.' },
+            { t: 'Les entrées d’eau en pignon mitoyen', d: 'Raccord contre le mur du voisin, solin partagé, différence de niveau de couverture d’une maison à l’autre : point sensible du bâti mitoyen.' },
+          ].map((f) => (
+            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
+              <h3 className="font-display text-lg text-papier">{f.t}</h3>
+              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Contrainte d'accès locale */}
+      <Section
+        eyebrow="Logistique de centre ancien"
         title="Se garer, monter, échafauder dans le centre d’Angers"
         intro="La moitié de la difficulté d’un chantier en centre ancien tient à la logistique, pas à la couverture elle-même."
       >
@@ -186,11 +209,11 @@ export default function CouvreurAngers() {
         </div>
       </Section>
 
-      {/* 6 — Pourquoi ça se chiffre autrement */}
+      {/* Pourquoi ça se chiffre autrement ici */}
       <Section
-        eyebrow="Budget local"
-        title="Pourquoi une toiture se chiffre autrement à Angers"
-        intro="À surface égale, une réfection en centre ancien coûte plus qu’en périphérie. Ce n’est pas une question de tarif, mais de contexte."
+        eyebrow="Le prix du centre ancien"
+        title="Ce qui rend un chantier plus cher intra-muros qu’en périphérie"
+        intro="À surface égale, une réfection dans le centre coûte plus qu’en couronne. Ce n’est pas le tarif qui change, c’est le contexte."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -207,41 +230,18 @@ export default function CouvreurAngers() {
               À l’inverse, à Beaucouzé ou à Écouflant, sur un pavillon récent
               avec cour et accès direct, la même surface se pose plus vite, avec
               une benne au pied du chantier et un simple récépissé de
-              déclaration. L’écart de prix vient de là — et le devis le montre
-              poste par poste pour que ce soit clair.
+              déclaration. L’écart de prix vient de là — et le devis le détaille
+              poste par poste pour que ce soit lisible.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* 7 — Points vérifiés en premier */}
+      {/* Déroulé d'un chantier dans cette ville, avec autorisations locales */}
       <Section
-        eyebrow="Méthode locale"
-        title="Les points qu’on vérifie en premier sur un toit angevin"
-        intro="Sur le bâti d’ici, ce sont toujours les mêmes endroits qui lâchent. On y va directement."
-      >
-        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
-          {[
-            { t: 'Le faîtage et les rives', d: 'Sur les toitures anciennes à faîtage scellé, on cherche le mortier éclaté, les faîtières qui bougent, les rives descellées côté vent dominant (ouest–sud-ouest).' },
-            { t: 'Les noues et les arêtiers', d: 'Toitures à croupe et à la Mansart des faubourgs : état du zinc de noue, recouvrement des ardoises biaisées, présence de percements et de traces d’écoulement.' },
-            { t: 'Les solins de souche', d: 'Cheminées souvent multiples et hautes : mortier des solins, bandes de recouvrement au plomb, closoir arrière, souche fissurée qui prend l’eau par le conduit.' },
-            { t: 'L’égout et la première rangée', d: 'Doublis, about de chevrons, bavette en zinc, alignement de la gouttière : c’est là que la rétention de mousse fait le plus de dégâts.' },
-            { t: 'L’écran de sous-toiture', d: 'Présent ou absent ? Déchiré ? Sur beaucoup de toits angevins il n’y en a pas : on en tient compte pour la suite du diagnostic.' },
-            { t: 'Les entrées d’eau en pignon mitoyen', d: 'Raccord contre le mur du voisin, solin partagé, différence de niveau de couverture d’une maison à l’autre : point sensible du bâti mitoyen.' },
-          ].map((f) => (
-            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
-              <h3 className="font-display text-lg text-papier">{f.t}</h3>
-              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* 8 — Déroulé local avec autorisations */}
-      <Section
-        eyebrow="Déroulé à Angers"
-        title="Un chantier à Angers, autorisations comprises"
-        intro="Le calendrier réel d’une réfection en centre ancien : les formalités s’enchaînent avant même le premier jour d’échafaudage."
+        eyebrow="Calendrier réel"
+        title="Un chantier dans le centre : les semaines qui précèdent l’échafaudage"
+        intro="Le calendrier concret d’une réfection en centre ancien — les formalités s’enchaînent bien avant le premier jour de dépose."
       >
         <Steps
           items={[
@@ -255,10 +255,10 @@ export default function CouvreurAngers() {
         />
       </Section>
 
-      {/* 9 — Urbanisme ABF */}
+      {/* Urbanisme et copropriété — ABF */}
       <Section
-        eyebrow="Urbanisme"
-        title="Site patrimonial remarquable et Architecte des Bâtiments de France"
+        eyebrow="Périmètre protégé"
+        title="Dans le Site patrimonial remarquable, l’ABF a son mot à dire"
         intro="Une grande partie du centre d’Angers est protégée. Concrètement, cela encadre l’aspect de votre toiture."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
@@ -283,9 +283,9 @@ export default function CouvreurAngers() {
         </div>
       </Section>
 
-      {/* 10 — Copropriété angevine */}
+      {/* Copropriété angevine */}
       <Section
-        eyebrow="Copropriété"
+        eyebrow="Immeubles de rapport"
         title="Le cas des immeubles de rapport angevins"
         intro="Beaucoup de toitures du centre couvrent des copropriétés de trois à huit lots. La décision passe par l’assemblée."
       >
@@ -309,21 +309,21 @@ export default function CouvreurAngers() {
         </div>
       </Section>
 
-      {/* 11 — FAQ locale */}
+      {/* FAQ locale */}
       <Section
-        eyebrow="Questions fréquentes"
-        title="Couvreur à Angers : les questions locales"
-        intro="Secteur protégé, rues piétonnes, ardoise de Trélazé, humidité des vallées : ce qu’on nous demande spécifiquement ici."
+        eyebrow="Propre à Angers"
+        title="Doutre, rues piétonnes, ardoise de Trélazé : les questions d’ici"
+        intro="Secteur protégé, accès du centre, ardoise de pays, humidité des vallées : ce qu’on nous demande spécifiquement à Angers."
       >
         <Faq items={faq} />
       </Section>
 
-      {/* 12 — Communes limitrophes */}
+      {/* Communes limitrophes en liens */}
       <Section
         id="communes"
-        eyebrow="Autour d’Angers"
-        title="Communes limitrophes"
-        intro="Le même savoir-faire, avec des contraintes d’accès et d’urbanisme souvent plus souples qu’en centre-ville."
+        eyebrow="Au-delà du périmètre"
+        title="Les communes où on intervient aussi"
+        intro="Mêmes gestes, mêmes exigences — avec des contraintes d’accès et d’urbanisme souvent plus souples qu’intra-muros."
       >
         <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
           {limitrophes.map((c) => (
@@ -341,7 +341,7 @@ export default function CouvreurAngers() {
           </Link>{' '}
           ·{' '}
           <Link href="/#prestations" className="text-ciel underline underline-offset-2">
-            toutes les prestations
+            le répertoire de l’atelier
           </Link>{' '}
           ·{' '}
           <Link href="/#devis" className="text-ciel underline underline-offset-2">
@@ -355,7 +355,7 @@ export default function CouvreurAngers() {
       <DevisBand
         id="devis-bas"
         title="Votre toiture angevine, vue par un couvreur d’ici"
-        intro="On connaît les rues, les interlocuteurs d’urbanisme et le bâti. Laissez vos coordonnées, on fixe la visite."
+        intro="On connaît les rues, les guichets d’urbanisme et le bâti. Laissez vos coordonnées, on cale la visite."
       />
     </>
   );

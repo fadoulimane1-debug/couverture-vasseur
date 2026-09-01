@@ -8,8 +8,8 @@ import PhoneLink from './PhoneLink';
  */
 export default function DevisBand({
   id = 'devis',
-  title = 'Devis gratuit sous 48 h',
-  intro = 'Décrivez votre toiture. Julien passe la voir, prend les mesures et vous remet un devis clair, ligne par ligne, sans engagement.',
+  title = 'Décrire le toit, on vient le mesurer',
+  intro = 'Vous racontez ce que vous voyez ; Julien monte le vérifier, relève les cotes et rédige un devis lisible, ligne par ligne, sans rien vous engager.',
 }: {
   id?: string;
   title?: string;
@@ -19,7 +19,7 @@ export default function DevisBand({
     <section id={id} className="scroll-mt-24 border-y border-ciel/15 bg-nuit-2">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1fr_1.15fr] md:px-8 md:py-20">
         <div>
-          <p className="cartouche">Devis · déplacement gratuit</p>
+          <p className="cartouche">Devis gratuit sous 48 h</p>
           <h2 className="mt-3 text-3xl text-papier md:text-4xl">{title}</h2>
           <p className="mt-4 max-w-prose2 text-papier/75">{intro}</p>
 

@@ -84,7 +84,7 @@ export default function RefectionArdoise() {
         ])}
       />
 
-      {/* 1 — H1 + accroche */}
+      {/* H1 + accroche */}
       <section className="blueprint-grid border-b border-ciel/15">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-14 md:pt-20">
           <nav aria-label="Fil d’Ariane" className="cartouche">
@@ -113,17 +113,38 @@ export default function RefectionArdoise() {
         </div>
       </section>
 
-      {/* 2 — Bloc devis en tête */}
+      {/* Bloc devis en tête (« Devis gratuit sous 48 h ») */}
       <DevisBand
-        title="Devis gratuit sous 48 h"
-        intro="Pour une réfection en ardoise, tout se joue à la visite : pente, charpente, accès. Laissez vos coordonnées, Julien vient relever le toit cette semaine."
+        title="À la visite, on relève avant de chiffrer"
+        intro="Pour une réfection en ardoise, tout se joue sur le toit : pente, charpente, accès. Laissez vos coordonnées, Julien vient prendre les cotes cette semaine."
       />
 
-      {/* 3 — Définition */}
+      {/* Signes d'alerte — on ouvre sur le vécu du lecteur */}
       <Section
-        eyebrow="Le sujet"
-        title="Ce que veut dire « refaire une toiture en ardoise »"
-        intro="Le mot recouvre deux réalités très différentes, et le devis n’a rien à voir de l’une à l’autre."
+        eyebrow="Ce que le toit signale"
+        title="Ce qu’une couverture d’ardoise montre avant de laisser entrer l’eau"
+        intro="De la rue ou depuis les combles, ce sont toujours les mêmes symptômes qui annoncent une couverture en bout de course."
+      >
+        <div className="panneau rounded-[4px] p-6 md:p-10">
+          <div className="prose-vasseur">
+            <ul>
+              <li><strong>Ardoises glissées ou en escalier</strong> le long d’un versant : les crochets ou les clous ont lâché, la couverture n’est plus solidaire.</li>
+              <li><strong>Ardoises qui feuillettent</strong>, se délaminent, sonnent creux : le schiste est en fin de vie, un remplacement ponctuel ne tiendra pas.</li>
+              <li><strong>Auréoles brunes au plafond ou sous les combles</strong>, bois humide, odeur de moisi : l’eau entre déjà, souvent par une noue ou un solin.</li>
+              <li><strong>Faîtage descellé</strong>, faîtières qui bougent, mortier tombé dans la gouttière : le point haut du toit n’est plus étanche au vent-pluie.</li>
+              <li><strong>Solins fissurés</strong> autour d’une souche de cheminée ou contre un mur : le mortier a travaillé, l’eau s’infiltre au raccord.</li>
+              <li><strong>Gouttières qui débordent</strong> ou se déforment, descentes disjointes : l’eau ruisselle sur la façade et sature le bas de la couverture.</li>
+              <li><strong>Mousse épaisse en partie basse</strong> et sur le versant nord : l’ardoise reste humide, gèle, et les fixations se corrodent plus vite.</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Définition */}
+      <Section
+        eyebrow="De quoi on parle"
+        title="« Refaire un toit en ardoise » : deux chantiers, deux devis"
+        intro="Le mot recouvre deux réalités très différentes, et le chiffrage n’a rien de commun de l’une à l’autre."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -141,41 +162,20 @@ export default function RefectionArdoise() {
               en état et que le désordre est localisé.
             </p>
             <p>
-              Le rôle de la visite technique est justement de trancher entre les
-              deux, sans vous vendre plus que nécessaire. Sur une maison
-              ancienne d’Angers, l’âge des crochets et l’état du faîtage en disent
-              souvent plus long que l’aspect des ardoises vues de la rue.
+              La visite technique sert justement à trancher entre les deux, sans
+              vous vendre plus que nécessaire. Sur une maison ancienne d’Angers,
+              l’âge des crochets et l’état du faîtage en disent souvent plus long
+              que l’aspect des ardoises vues de la rue.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* 4 — Signes d'alerte */}
-      <Section
-        eyebrow="Diagnostic"
-        title="Les signes qui doivent vous alerter"
-        intro="Vus de l’intérieur comme de l’extérieur, voici les symptômes qui justifient de faire monter un couvreur sans attendre."
-      >
-        <div className="panneau rounded-[4px] p-6 md:p-10">
-          <div className="prose-vasseur">
-            <ul>
-              <li><strong>Ardoises glissées ou en escalier</strong> le long d’un versant : les crochets ou les clous ont lâché, la couverture n’est plus solidaire.</li>
-              <li><strong>Ardoises qui feuillettent</strong>, se délaminent, sonnent creux : le schiste est en fin de vie, un remplacement ponctuel ne tiendra pas.</li>
-              <li><strong>Auréoles brunes au plafond ou sous les combles</strong>, bois humide, odeur de moisi : l’eau entre déjà, souvent par une noue ou un solin.</li>
-              <li><strong>Faîtage descellé</strong>, tuiles faîtières qui bougent, mortier tombé dans la gouttière : le point haut du toit n’est plus étanche au vent-pluie.</li>
-              <li><strong>Solins fissurés</strong> autour d’une souche de cheminée ou contre un mur : le mortier a travaillé, l’eau s’infiltre au raccord.</li>
-              <li><strong>Gouttières qui débordent</strong> ou se déforment, descentes disjointes : l’eau ruisselle sur la façade et sature le bas de la couverture.</li>
-              <li><strong>Mousse épaisse en partie basse</strong> et sur le versant nord : l’ardoise reste humide, gèle, et les fixations se corrodent plus vite.</li>
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* 5 — Reprise vs réfection */}
+      {/* Reprise vs réfection */}
       <Section
         eyebrow="La réponse franche"
-        title="Reprise ciblée ou réfection totale ?"
-        intro="La question que tout le monde pose. Voici comment on la tranche, concrètement."
+        title="Reprendre une zone ou tout redéposer : où passe la ligne"
+        intro="C’est la première question au téléphone. Voici comment on y répond, sans arrondir."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -184,17 +184,17 @@ export default function RefectionArdoise() {
               ans, que les ardoises sont saines, que le désordre est localisé
               (une noue, un égout, quelques rangs sous une lucarne) et que la
               charpente est sèche. Une reprise soignée coûte quelques centaines
-              d’euros et vous fait gagner dix ans.
+              d’euros et fait gagner dix ans.
             </p>
             <p>
-              <strong>On refait</strong> quand les fixations sont généralisées à
-              la corrosion, que l’on remplace déjà des ardoises chaque année, que
+              <strong>On refait</strong> quand la corrosion des fixations est
+              généralisée, qu’on remplace déjà des ardoises chaque année, que
               l’écran de sous-toiture est absent ou détruit, ou que la reprise
-              coûterait plus de la moitié d’une réfection. Rapiécer une toiture à
-              bout de course, c’est payer deux fois.
+              dépasserait la moitié du prix d’une réfection. Rapiécer une toiture
+              à bout de course, c’est payer deux fois.
             </p>
             <p>
-              Ce que nous ne faisons pas : proposer une réfection totale « par
+              Ce qu’on ne fait pas : proposer une réfection totale « par
               sécurité » quand une reprise suffit. Le devis de visite dit
               clairement ce qui relève de l’un ou de l’autre, avec les deux
               chiffrages quand le cas est limite.
@@ -203,41 +203,41 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 6 — Détail de l'intervention */}
+      {/* Détail de l'intervention */}
       <Section
-        eyebrow="Mise en œuvre"
-        title="Le détail de l’intervention, poste par poste"
+        eyebrow="Sous les ardoises"
+        title="Ce qui se joue entre la charpente et la dernière ardoise"
         intro="Le vocabulaire du métier, expliqué. C’est ce que vous retrouverez, ligne par ligne, sur le devis."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
-            <h3>Charpente et support</h3>
+            <h3>La charpente, une fois le toit à nu</h3>
             <p>
-              Une fois la toiture nue, on sonde chaque chevron et chaque panne.
-              Bois attaqué par les capricornes ou la mérule, about de chevron
-              pourri à l’égout, entrait fendu : on traite par injection et
-              pulvérisation, on double ou on remplace les pièces mortes, on
-              recale les portées. Rien n’est refermé sans que vous ayez vu.
+              Couverture déposée, on sonde chaque chevron et chaque panne. Bois
+              attaqué par les capricornes ou la mérule, about de chevron pourri à
+              l’égout, entrait fendu : on traite par injection et pulvérisation,
+              on double ou on remplace les pièces mortes, on recale les portées.
+              Rien n’est refermé sans que vous ayez vu.
             </p>
-            <h3>Écran de sous-toiture et liteaunage</h3>
+            <h3>L’écran de sous-toiture et le liteaunage</h3>
             <p>
               On agrafe un <strong>écran de sous-toiture HPV</strong> (hautement
               perméable à la vapeur) sur les chevrons, recouvrement respecté,
               relevés soignés aux pénétrations. Par-dessus viennent les
-              <strong> contre-lattes</strong> qui créent la lame d’air, puis le
-              <strong> liteaunage</strong> en sapin traité, dont l’entraxe est
-              calculé au pureau de l’ardoise choisie. Un liteaunage régulier,
-              c’est une couverture qui ne « vague » pas.
+              <strong> contre-lattes</strong> qui ménagent la lame d’air, puis le
+              <strong> liteaunage</strong> en sapin traité, dont l’entraxe se
+              cale au pureau de l’ardoise choisie. Un liteaunage régulier, c’est
+              une couverture qui ne « vague » pas.
             </p>
-            <h3>Pose de l’ardoise d’Anjou</h3>
+            <h3>La pose de l’ardoise d’Anjou</h3>
             <p>
               Ardoise naturelle au format 32×22, posée <strong>au crochet inox</strong>
               {' '}sur liteaux, ou <strong>au clou</strong> sur voligeage pour les
               fortes pentes et les rives. Recouvrement adapté à la pente et à
-              l’exposition, ardoises de rive taillées, doublis à l’égout. On
-              travaille à l’avancement, rang par rang, cordeau tendu.
+              l’exposition, ardoises de rive taillées, doublis à l’égout. Le
+              travail avance rang par rang, cordeau tendu.
             </p>
-            <h3>Points singuliers</h3>
+            <h3>Faîtage, noues, solins : les points singuliers</h3>
             <p>
               C’est là que se jouent les fuites : <strong>faîtage</strong> à sec
               sur closoir ventilé ou scellé au mortier bâtard selon le bâti,
@@ -247,22 +247,22 @@ export default function RefectionArdoise() {
               {' '}de rive, sorties de ventilation et de chaudière étanchées une à
               une.
             </p>
-            <h3>Zinguerie et évacuation</h3>
+            <h3>La zinguerie et l’évacuation des eaux</h3>
             <p>
               Gouttières demi-rondes ou chéneaux, dauphins en fonte, descentes en
-              zinc : les sections et les pentes sont calculées pour la surface de
-              toiture collectée. Soudure à l’étain, dilatation ménagée. Une
-              évacuation sous-dimensionnée, c’est de l’eau qui repasse sous
-              l’égout à chaque gros orage.
+              zinc : sections et pentes se calculent d’après la surface de toiture
+              collectée. Soudure à l’étain, dilatation ménagée. Une évacuation
+              sous-dimensionnée, c’est de l’eau qui repasse sous l’égout à chaque
+              gros orage.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* 7 — Déroulé */}
+      {/* Déroulé */}
       <Section
-        eyebrow="Méthode"
-        title="Le déroulé, de la visite de relevé à la réception"
+        eyebrow="Dans l’ordre"
+        title="Du relevé sur le toit à la remise des clés, étape par étape"
         intro="Six étapes, dans cet ordre. Vous validez chacune avant qu’on passe à la suivante."
       >
         <Steps
@@ -277,18 +277,18 @@ export default function RefectionArdoise() {
         />
       </Section>
 
-      {/* 8 — Coût */}
+      {/* Coût */}
       <Section
-        eyebrow="Budget"
-        title="Ce qui fait le coût d’une réfection en ardoise"
+        eyebrow="Ce qui creuse l’écart"
+        title="Pourquoi deux réfections d’ardoise ne se chiffrent pas pareil"
         intro="Fourchette de référence à Angers en 2026 : 180 à 320 €/m² dépose comprise, en ardoise naturelle. Quatre paramètres expliquent l’écart."
       >
         <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
           {[
-            { t: 'La surface et la géométrie', d: 'Deux pans réguliers ou toiture à la Mansart avec brisis, lucarnes, croupes et noues : le linéaire de points singuliers pèse davantage que les mètres carrés courants.' },
+            { t: 'La surface courante et la géométrie', d: 'Deux pans réguliers, ou toiture à la Mansart avec brisis, lucarnes, croupes et noues : le linéaire de points singuliers pèse plus lourd que les mètres carrés courants.' },
             { t: 'L’état réel de la charpente', d: 'Invisible avant la dépose. Un traitement et quelques greffes de chevrons se chiffrent en centaines d’euros ; une panne à remplacer, en milliers. Toujours sur devis signé avant exécution.' },
-            { t: 'L’accès et l’échafaudage', d: 'Recul de cour, hauteur, échafaudage sur rue avec autorisation de voirie, portage manuel : c’est souvent le poste qui sépare deux devis d’apparence identiques.' },
-            { t: 'Le choix de l’ardoise', d: 'Ardoise naturelle d’Anjou, ardoise d’importation, ardoise fibre-ciment de teinte proche : le prix de fourniture varie du simple au double, et le mode de pose avec.' },
+            { t: 'L’accès et l’échafaudage', d: 'Recul de cour, hauteur, échafaudage sur rue avec autorisation de voirie, portage manuel : c’est souvent ce poste qui écarte deux devis d’apparence identique.' },
+            { t: 'Le choix de l’ardoise', d: 'Ardoise naturelle d’Anjou, ardoise d’importation, ardoise fibre-ciment de teinte proche : la fourniture varie du simple au double, et le mode de pose avec.' },
           ].map((f) => (
             <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
               <h3 className="font-display text-lg text-papier">{f.t}</h3>
@@ -298,11 +298,11 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 9 — Démarches administratives (intro) */}
+      {/* Démarches administratives — intro */}
       <Section
-        eyebrow="Avant les travaux"
-        title="Les démarches administratives à Angers"
-        intro="Refaire un toit modifie l’aspect extérieur d’un bâtiment : dans presque tous les cas, il y a une formalité d’urbanisme. On la prend en charge."
+        eyebrow="Avant la première ardoise"
+        title="Les autorisations à décrocher avant de monter l’échafaudage"
+        intro="Refaire un toit modifie l’aspect extérieur d’un bâtiment : il y a presque toujours une formalité d’urbanisme. On la prend en charge."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -319,11 +319,11 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 10 — DP + ABF */}
+      {/* DP + ABF */}
       <Section
-        eyebrow="Urbanisme"
-        title="Déclaration préalable et Architecte des Bâtiments de France"
-        intro="Ce que dépose la mairie d’Angers, et ce qui change quand le bien est dans le périmètre protégé."
+        eyebrow="Mairie & Bâtiments de France"
+        title="La déclaration préalable, puis l’œil de l’Architecte des Bâtiments de France"
+        intro="Ce qui se dépose à la mairie d’Angers, et ce qui change quand le bien est dans le périmètre protégé."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
           <div className="prose-vasseur">
@@ -348,10 +348,10 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 11 — Copropriété */}
+      {/* Copropriété */}
       <Section
-        eyebrow="Copropriété"
-        title="Vote en assemblée et rôle du syndic"
+        eyebrow="Parties communes"
+        title="Quand le toit appartient à toute la copropriété"
         intro="La toiture est une partie commune : la décision ne vous appartient pas seul, mais vous pouvez la préparer."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
@@ -370,10 +370,10 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 12 — Échafaudage domaine public */}
+      {/* Échafaudage domaine public */}
       <Section
-        eyebrow="Voirie"
-        title="Échafaudage sur le domaine public"
+        eyebrow="Sur le trottoir"
+        title="Poser un échafaudage sur la voie publique à Angers"
         intro="Dans les rues étroites du centre, l’échafaudage empiète presque toujours sur le trottoir ou une place de stationnement."
       >
         <div className="panneau rounded-[4px] p-6 md:p-10">
@@ -391,20 +391,20 @@ export default function RefectionArdoise() {
         </div>
       </Section>
 
-      {/* 13 — FAQ */}
+      {/* FAQ */}
       <Section
-        eyebrow="Questions fréquentes"
-        title="Réfection en ardoise : les questions qui reviennent"
-        intro="Saison, durée, charpente, durée de vie, déchets : les réponses propres à ce type de chantier."
+        eyebrow="Propre à ce chantier"
+        title="Saison, durée, charpente, déchets : les questions de la réfection en ardoise"
+        intro="Les réponses qui ne valent que pour ce type de chantier — différentes de celles de l’accueil."
       >
         <Faq items={faq} />
       </Section>
 
-      {/* 14 — Maillage interne */}
+      {/* Maillage interne */}
       <Section
-        eyebrow="Continuer"
-        title="Prestations liées et page ville"
-        intro="Une réfection en appelle souvent d’autres : zinguerie, fenêtre de toit, isolation. Et le contexte local mérite sa propre page."
+        eyebrow="Poursuivre la lecture"
+        title="Ce qu’une réfection appelle souvent après elle"
+        intro="Zinguerie, fenêtre de toit, isolation : une couverture neuve ouvre d’autres chantiers. Et le contexte angevin a sa propre page."
       >
         <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
           {autres.map((p) => (
@@ -417,15 +417,15 @@ export default function RefectionArdoise() {
           ))}
           <li className="bg-nuit-2 p-5">
             <Link href="/couvreur-angers" className="font-display text-lg text-papier hover:text-ciel">
-              Couvreur à Angers — page ville
+              Couvreur à Angers — le contexte local
             </Link>
             <p className="mt-1 text-sm text-papier/65">
-              Bâti ancien, secteur sauvegardé, contraintes d’accès du centre.
+              Bâti ancien, secteur patrimonial, contraintes d’accès du centre.
             </p>
           </li>
           <li className="bg-nuit-2 p-5">
             <Link href="/#zone" className="font-display text-lg text-papier hover:text-ciel">
-              Zone d’intervention
+              La zone d’intervention
             </Link>
             <p className="mt-1 text-sm text-papier/65">
               Angers, Avrillé, Beaucouzé, Les Ponts-de-Cé, Trélazé,
@@ -435,11 +435,11 @@ export default function RefectionArdoise() {
         </ul>
       </Section>
 
-      {/* 15 — Bloc devis (bas) */}
+      {/* Bloc devis (bas) */}
       <DevisBand
         id="devis-bas"
-        title="Faire relever votre toiture"
-        intro="Un métré sérieux sur place, un devis clair sous 48 h, les autorisations gérées. C’est comme ça qu’on démarre une réfection en ardoise."
+        title="Faire monter Julien sur votre toit"
+        intro="Un métré sérieux sur place, un devis clair sous 48 h, les autorisations gérées. C’est ainsi que démarre une réfection en ardoise."
       />
     </>
   );
