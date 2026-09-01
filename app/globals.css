@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nuit: #0c131c;
+  --nuit-2: #131e2b;
+  --encre: #0061c6;
+  --ciel: #6ba6ff;
+  --papier: #eef1f5;
+  --laiton: #c08a3e;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--nuit);
+    color: var(--papier);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--ciel);
+    color: var(--nuit);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ciel);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Fond « papier millimétré » du plan de couverture. */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(rgba(107, 166, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(107, 166, 255, 0.07) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-position: -1px -1px;
+  }
+
+  /* Filet fin bleu — séparateur de section, avec repère laiton à gauche. */
+  .hairline {
+    position: relative;
+    border-top: 1px solid rgba(107, 166, 255, 0.28);
+  }
+  .hairline::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--laiton);
+  }
+
+  /* Étiquette monospace type cartouche de plan. */
+  .cartouche {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ciel);
+  }
+
+  /* Panneau clair : bloc de texte long posé comme un plan sur l'établi. */
+  .panneau {
+    background: var(--papier);
+    color: #1a2230;
+    border: 1px solid var(--papier-2, #e2e7ee);
+    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Corps de texte éditorial pour les longues sections SEO. */
+  .prose-vasseur {
+    max-width: 68ch;
+  }
+  .prose-vasseur > * + * {
+    margin-top: 1rem;
+  }
+  .prose-vasseur h2 {
+    font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.15rem);
+    margin-top: 2.75rem;
+    color: #0c131c;
+  }
+  .prose-vasseur h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.9rem;
+    color: #12202f;
+  }
+  .prose-vasseur p,
+  .prose-vasseur li {
+    color: #2b3646;
+  }
+  .prose-vasseur strong {
+    color: #0c131c;
+  }
+  .prose-vasseur a {
+    color: var(--encre-fonce, #004a99);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+  .prose-vasseur a:hover {
+    color: var(--encre);
+  }
+  .prose-vasseur ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-vasseur ul li {
+    position: relative;
+    padding-left: 1.4rem;
+  }
+  .prose-vasseur ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 2px;
+    background: var(--laiton);
+  }
+  .prose-vasseur ol {
+    padding-left: 1.2rem;
+  }
+  .prose-vasseur ol li::marker {
+    font-family: var(--font-mono), monospace;
+    color: var(--encre);
+  }
+
+  /* Trait qui se dessine au chargement de la coupe technique (signature). */
+  .draw path,
+  .draw line,
+  .draw polyline {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: draw 2.4s ease-out forwards;
+  }
+  .draw .instant {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .draw path,
+  .draw line,
+  .draw polyline {
+    stroke-dashoffset: 0;
+  }
+}

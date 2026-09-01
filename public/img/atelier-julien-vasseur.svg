@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440" font-family="ui-monospace, Menlo, monospace">
+  <rect width="640" height="440" fill="#0C131C"/>
+  <g stroke="#6BA6FF" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 34H640M0 68H640M0 102H640M0 136H640M0 170H640M0 204H640M0 238H640M0 272H640M0 306H640M0 340H640M0 374H640M0 408H640M34 0V440M68 0V440M102 0V440M136 0V440M170 0V440M204 0V440M238 0V440M272 0V440M306 0V440M340 0V440M374 0V440M408 0V440M442 0V440M476 0V440M510 0V440M544 0V440M578 0V440M612 0V440"/>
+  </g>
+
+  <!-- rampant -->
+  <g fill="none" stroke="#6BA6FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="40" y1="360" x2="560" y2="150"/>
+    <line x1="40" y1="378" x2="548" y2="172" stroke-width="1" stroke-opacity="0.6"/>
+  </g>
+  <g stroke="#6BA6FF" stroke-width="1" stroke-opacity="0.5">
+    <line x1="120" y1="336" x2="128" y2="345"/><line x1="200" y1="304" x2="208" y2="313"/><line x1="280" y1="272" x2="288" y2="281"/><line x1="360" y1="240" x2="368" y2="249"/><line x1="440" y1="208" x2="448" y2="217"/>
+  </g>
+
+  <!-- silhouette du couvreur, genou sur le rampant -->
+  <g fill="none" stroke="#6BA6FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="330" cy="196" r="13"/>
+    <path d="M330 209 L326 250 L300 276"/>
+    <path d="M326 250 L356 258 L372 240"/>
+    <path d="M330 220 L300 236 M330 224 L360 214"/>
+    <path d="M296 276 l-14 8 l22 2 z" fill="#6BA6FF" fill-opacity="0.25"/>
+  </g>
+
+  <!-- crochet + ardoise dans la main -->
+  <g fill="none" stroke="#6BA6FF" stroke-width="1.4">
+    <rect x="356" y="204" width="26" height="34" transform="rotate(-32 369 221)"/>
+  </g>
+
+  <!-- caisse à outils -->
+  <g fill="none" stroke="#6BA6FF" stroke-width="1.4">
+    <rect x="210" y="300" width="70" height="34"/>
+    <path d="M210 300 q35 -22 70 0"/>
+    <line x1="245" y1="288" x2="245" y2="300"/>
+  </g>
+
+  <g fill="#6BA6FF" font-size="11" letter-spacing="0.06em">
+    <g stroke="#6BA6FF" stroke-width="0.75" stroke-opacity="0.5">
+      <line x1="470" y1="150" x2="345" y2="196"/>
+      <line x1="470" y1="300" x2="280" y2="317"/>
+    </g>
+    <text x="474" y="150" text-anchor="start">JULIEN VASSEUR — SUR LE TOIT, PAS AU TÉLÉPHONE</text>
+    <text x="474" y="300" text-anchor="start">OUTILS À MAIN · CROCHETS INOX · ZINC FAÇONNÉ À L’ATELIER</text>
+  </g>
+
+  <g>
+    <rect x="16" y="402" width="608" height="26" fill="none" stroke="#6BA6FF" stroke-opacity="0.5"/>
+    <text x="24" y="419" fill="#6BA6FF" font-size="10" letter-spacing="0.12em">L’ATELIER · COUVERTURE VASSEUR · ANGERS (49) · COMPAGNON COUVREUR ZINGUEUR DEPUIS 2009</text>
+  </g>
+</svg>

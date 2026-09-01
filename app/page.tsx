@@ -1,0 +1,503 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Section from '@/components/Section';
+import Steps from '@/components/Steps';
+import Faq from '@/components/Faq';
+import Figure from '@/components/Figure';
+import DevisBand from '@/components/DevisBand';
+import PhoneLink from '@/components/PhoneLink';
+import RoofSection from '@/components/RoofSection';
+import Jsonld from '@/components/Jsonld';
+import { faqSchema } from '@/lib/schema';
+import { business, communes, prestations, primaryPrestationSlug } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title:
+    'Couvreur Angers 49 — Rénovation toiture ardoise | Couverture Vasseur',
+  description:
+    'Couvreur zingueur à Angers (49) : réfection de toiture en ardoise d’Anjou, recherche de fuite, zinguerie, démoussage. Artisan RGE Qualibat, garantie décennale, 47 avis 4,9/5. Devis gratuit sous 48 h.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    url: '/',
+    title: 'Couvreur zingueur à Angers — Couverture Vasseur',
+    description:
+      'Réfection de toiture en ardoise d’Anjou et entretien des toitures anciennes à Angers et alentour. Devis gratuit sous 48 h.',
+  },
+};
+
+const faq = [
+  {
+    q: 'Sous quel délai intervenez-vous à Angers ?',
+    a: 'Pour une demande de devis, nous rappelons sous 48 h ouvrées et fixons une visite dans la semaine. En cas de fuite active, nous passons sous 24 à 48 h pour une mise hors d’eau provisoire, puis nous programmons la réparation définitive.',
+  },
+  {
+    q: 'Le devis et le déplacement sont-ils vraiment gratuits ?',
+    a: 'Oui, sur toute la zone d’intervention : Angers et les communes limitrophes. La visite technique, la prise de mesures et le devis détaillé ne vous engagent à rien et ne vous sont jamais facturés.',
+  },
+  {
+    q: 'Combien coûte une réfection de toiture en ardoise à Angers ?',
+    a: 'Pour une réfection complète en ardoise naturelle d’Anjou, comptez de 180 à 320 €/m² dépose comprise, selon la pente, l’accès et l’état de la charpente. L’ardoise fibre-ciment descend autour de 120 à 190 €/m². Le chiffrage précis se fait toujours après visite.',
+  },
+  {
+    q: 'Existe-t-il des aides pour refaire une toiture ?',
+    a: 'La réfection seule n’ouvre pas droit à aide. En revanche, si vous en profitez pour isoler la toiture (sarking, isolation des combles), les travaux d’isolation peuvent être éligibles à MaPrimeRénov’, aux CEE et à la TVA à 5,5 %. Notre certification RGE Qualibat est la condition pour y prétendre.',
+  },
+  {
+    q: 'Faut-il une autorisation d’urbanisme pour refaire un toit ?',
+    a: 'Un remplacement à l’identique reste soumis à déclaration préalable de travaux dès qu’il modifie l’aspect extérieur. À Angers, une grande partie du centre est en Site patrimonial remarquable : l’avis de l’Architecte des Bâtiments de France est alors requis. Nous montons le dossier avec vous.',
+  },
+  {
+    q: 'Mon logement est en copropriété : comment ça se passe ?',
+    a: 'La toiture est une partie commune. Les travaux doivent être votés en assemblée générale, sur la base d’un ou plusieurs devis. Nous fournissons un devis lisible par le conseil syndical et le syndic, avec le détail des postes, et nous pouvons présenter le chantier en AG si besoin.',
+  },
+  {
+    q: 'Intervenez-vous en urgence après une tempête ?',
+    a: 'Oui. Ardoises envolées, faîtage arraché, infiltration : nous priorisons ces appels et posons une bâche lestée ou une réparation provisoire pour arrêter l’eau, avant de chiffrer la remise en état.',
+  },
+  {
+    q: 'Posez-vous de l’ardoise naturelle ou de la fibre-ciment ?',
+    a: 'Les deux, selon le bâti et le budget. Sur une maison ancienne du centre d’Angers ou un secteur protégé, l’ardoise naturelle s’impose souvent, pour l’aspect et la tenue dans le temps. Sur un pavillon récent, la fibre-ciment est un choix cohérent et plus économique.',
+  },
+  {
+    q: 'Travaillez-vous en dehors d’Angers ?',
+    a: 'Nous couvrons Angers, Avrillé, Beaucouzé, Les Ponts-de-Cé, Trélazé, Saint-Barthélemy-d’Anjou et Écouflant. Pour un chantier ailleurs dans le Maine-et-Loire, appelez-nous : nous étudions au cas par cas.',
+  },
+];
+
+const chantiers = [
+  {
+    src: '/img/chantier-maison-ville-angers.svg',
+    titre: 'Maison de ville en tuffeau, secteur sauvegardé — Angers',
+    alt: 'Coupe avant/après d’une maison de ville en tuffeau du centre d’Angers : ardoises glissées, faîtage descellé et gouttière déformée à gauche, couverture neuve en ardoise d’Anjou avec faîtière ventilée et zinguerie neuve à droite.',
+    texte:
+      'Toiture d’origine à bout de souffle : crochets rouillés, ardoises feuilletées, faîtage au mortier éclaté. Dépose complète, contrôle de la charpente chêne, écran de sous-toiture, liteaunage neuf et pose d’ardoise d’Anjou 32×22 à crochet inox. Faîtage à sec sur closoir ventilé, zinguerie et descente refaites. Dossier ABF déposé et suivi.',
+    caption: 'Réf. 2024-118 · 92 m² · réfection complète',
+  },
+  {
+    src: '/img/chantier-longere-avrille.svg',
+    titre: 'Longère à Avrillé — démoussage et reprise de faîtage',
+    alt: 'Vue avant/après d’une longère à Avrillé : versant couvert de mousse épaisse et faîtage à reprendre à gauche, toiture brossée et traitée avec faîtage refait et raccord de lucarne à droite.',
+    texte:
+      'Pas de réfection ici : la couverture était saine sous la mousse. Brossage manuel et basse pression, purge des lichens, traitement hydrofuge fongicide. Reprise du faîtage au mortier bâtard sur 22 mètres, remplacement des ardoises cassées et réfection du raccord de lucarne au plomb.',
+    caption: 'Réf. 2023-074 · 140 m² · entretien lourd',
+  },
+  {
+    src: '/img/chantier-noue-ponts-de-ce.svg',
+    titre: 'Maison de bord de Loire aux Ponts-de-Cé — réfection de noue',
+    alt: 'Vue de dessus avant/après d’une toiture aux Ponts-de-Cé : noue en zinc percée avec traces d’infiltration à gauche, noue neuve en zinc 0,8 mm avec ardoises biaisées et pente vérifiée à droite.',
+    texte:
+      'Auréoles sous combles à l’aplomb de la noue : le zinc, posé il y a quarante ans, était percé. Dépose des ardoises de rive de noue, fond de noue neuf en zinc 0,8 mm, pente d’évacuation reprise, ardoises recoupées en biais et fixées au crochet. Reprise de l’égout sur trois mètres.',
+    caption: 'Réf. 2024-203 · noue 9 ml + égout',
+  },
+];
+
+const facteursPrix = [
+  {
+    t: 'L’accès au chantier',
+    d: 'Une rue étroite du centre d’Angers, un stationnement impossible, une cour sans recul : tout cela conditionne le type d’échafaudage, la manutention et parfois une autorisation de voirie. C’est souvent le premier poste qui fait varier un devis.',
+  },
+  {
+    t: 'La complexité de la toiture',
+    d: 'Nombre de pans, noues, arêtiers, lucarnes, souches, croupes : chaque point singulier demande de la zinguerie et du temps. Une toiture à deux pans se chiffre autrement qu’une toiture à la Mansart avec brisis en ardoise.',
+  },
+  {
+    t: 'L’état de la charpente',
+    d: 'On ne le voit qu’une fois la couverture déposée. Chevrons attaqués, pannes fléchies, entrait fendu : les reprises se chiffrent en supplément, sur devis complémentaire signé avant de continuer. Nous ne découvrons jamais une charpente sans vous montrer.',
+  },
+  {
+    t: 'Le matériau et la dépose',
+    d: 'Ardoise naturelle d’Anjou, ardoise fibre-ciment, tuile plate de pays : les prix vont du simple au double. À cela s’ajoute la dépose de l’ancienne couverture, le tri et l’évacuation en déchèterie professionnelle, surtout en présence de plaques anciennes.',
+  },
+];
+
+export default function Accueil() {
+  return (
+    <>
+      <Jsonld data={faqSchema(faq)} />
+
+      {/* 1 — Bandeau d'ouverture */}
+      <section className="blueprint-grid border-b border-ciel/15">
+        <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-16 md:pt-20">
+          <p className="cartouche">Angers · Anjou · Maine-et-Loire 49</p>
+          <h1 className="mt-4 max-w-4xl text-[2.6rem] leading-[1.05] text-papier sm:text-6xl md:text-[4.4rem]">
+            Couvreur zingueur à Angers
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-papier/80 md:text-xl">
+            La toiture ancienne d’Angers, reprise dans les règles de l’ardoise
+            d’Anjou — par l’artisan qui monte lui-même sur le toit.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <PhoneLink label={`Appeler — ${business.phoneDisplay}`} />
+            <Link
+              href="#devis"
+              className="inline-flex items-center rounded-[2px] border border-ciel/40 px-5 py-3 font-mono text-[0.78rem] uppercase tracking-label text-ciel hover:bg-ciel/10"
+            >
+              Devis gratuit sous 48 h
+            </Link>
+          </div>
+
+          <p className="mt-5 font-mono text-[0.72rem] uppercase tracking-label text-papier/55">
+            RGE Qualibat · Garantie décennale · {business.trust.rating}/5 sur{' '}
+            {business.trust.reviewCount} avis Google · {business.since}
+          </p>
+
+          <RoofSection className="mt-12 rounded-[4px] border border-ciel/15 bg-nuit-2/60 p-4 md:mt-16 md:p-8" />
+        </div>
+      </section>
+
+      {/* 2 — Bloc devis (haut de page) */}
+      <DevisBand />
+
+      {/* 3 — Gages de confiance chiffrés */}
+      <Section
+        eyebrow="Ce qui est vérifiable"
+        title="Les chiffres avant les promesses"
+        intro="Un couvreur, ça se vérifie sur pièces. Voici les nôtres, contrôlables avant même de décrocher le téléphone."
+      >
+        <dl className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { k: `${business.trust.rating} / 5`, v: `${business.trust.reviewCount} avis Google sur nos chantiers dans l’agglomération` },
+            { k: 'RGE Qualibat', v: 'mention obligatoire pour ouvrir droit aux aides à l’isolation' },
+            { k: 'Décennale', v: 'garantie souscrite chez MMA, attestation remise avec chaque devis' },
+            { k: `${business.foundingYear}`, v: `installé à Angers ${business.since} — ${business.yearsLabel}` },
+          ].map((s) => (
+            <div key={s.v} className="bg-nuit-2 p-6">
+              <dt className="font-display text-2xl text-ciel">{s.k}</dt>
+              <dd className="mt-2 text-sm text-papier/70">{s.v}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-6 max-w-prose2 text-sm text-papier/60">
+          Numéro de certificat RGE et références d’assurance : {business.trust.qualibat},{' '}
+          {business.trust.decennale}. Nous les communiquons sans détour, à
+          l’écrit, avec le devis.
+        </p>
+      </Section>
+
+      {/* 4 — Grille de prestations */}
+      <Section
+        id="prestations"
+        eyebrow="Prestations"
+        title="Huit métiers, une seule main sur le toit"
+        intro="Du relevé de charpente à la dernière soudure de zinc, tout est fait par l’équipe. Aucune prestation n’est sous-traitée à un tâcheron de passage."
+      >
+        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+          {prestations.map((p) => {
+            const isPage = p.slug === primaryPrestationSlug;
+            return (
+              <div key={p.slug} className="bg-nuit-2 p-6 md:p-7">
+                <h3 className="font-display text-xl text-papier">
+                  {isPage ? (
+                    <Link href={`/${primaryPrestationSlug}`} className="hover:text-ciel">
+                      {p.titre} →
+                    </Link>
+                  ) : (
+                    p.titre
+                  )}
+                </h3>
+                <p className="mt-1 font-mono text-[0.72rem] uppercase tracking-label text-ciel/70">
+                  {p.resume}
+                </p>
+                <p className="mt-3 text-sm text-papier/70">{p.detail}</p>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* 5 — Section matériau */}
+      <Section
+        eyebrow="Matériau"
+        title="Pourquoi l’ardoise d’Anjou, et pourquoi la pente compte"
+        intro="Angers est une ville d’ardoise. Ce n’est pas une préférence esthétique : c’est le matériau que le bâti local a été conçu pour recevoir."
+      >
+        <div className="panneau rounded-[4px] p-6 md:p-10">
+          <div className="prose-vasseur">
+            <h3>Une ardoise née dans le sous-sol angevin</h3>
+            <p>
+              Le bassin de Trélazé et de l’Anjou a fourni pendant des siècles une
+              ardoise de schiste dense, à grain fin, d’un bleu-noir profond qui
+              vieillit sans se déliter. Les maisons de ville d’Angers, les
+              longères de la couronne, les corps de ferme du plateau ont tous été
+              couverts avec elle. Poser autre chose sur ces toitures, c’est
+              rompre l’unité d’une rue et, souvent, se heurter au règlement du
+              Site patrimonial remarquable. Nous travaillons l’ardoise naturelle
+              au format traditionnel <strong>32×22</strong> et,
+              lorsque la pente et le budget l’imposent, une ardoise fibre-ciment
+              de teinte proche.
+            </p>
+            <h3>La pente, condition de l’étanchéité</h3>
+            <p>
+              L’ardoise n’est pas étanche par elle-même : elle évacue l’eau par
+              recouvrement et par gravité. En dessous d’une certaine pente, l’eau
+              stagne, remonte par capillarité sous les ardoises et finit sous les
+              combles. Dans notre secteur, exposé aux pluies d’ouest et aux
+              rafales de la vallée de la Loire, on vise une pente confortable et
+              un recouvrement généreux. Sur les toitures anciennes à faible
+              pente, on renforce par un écran de sous-toiture HPV et, parfois, un
+              support continu. C’est un point que nous mesurons dès la visite,
+              parce qu’il change tout le reste du devis.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 6 — Réalisations */}
+      <Section
+        eyebrow="Réalisations"
+        title="Chantiers récents, avant et après"
+        intro="Trois interventions représentatives de ce que nous faisons dans l’agglomération : une réfection lourde, un entretien, une réparation ciblée."
+      >
+        <div className="grid gap-10">
+          {chantiers.map((c) => (
+            <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
+              <Figure src={c.src} alt={c.alt} caption={c.caption} />
+              <div>
+                <h3 className="font-display text-xl text-papier">{c.titre}</h3>
+                <p className="mt-3 text-papier/75">{c.texte}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="mt-8 text-sm text-papier/55">
+          Les schémas ci-dessus sont des relevés de principe. Les photos de
+          chantier sont montrées sur demande, avec l’accord des propriétaires.
+        </p>
+      </Section>
+
+      {/* 7 — L'artisan */}
+      <Section
+        eyebrow="L’artisan"
+        title="Qui monte sur le toit"
+        intro="Vous ne parlez pas à un centre d’appel qui revend votre demande. Vous parlez au couvreur qui posera vos ardoises."
+      >
+        <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-center">
+          <Figure
+            src="/img/atelier-julien-vasseur.svg"
+            alt="Illustration au trait de Julien Vasseur, couvreur zingueur, agenouillé sur un rampant en ardoise avec sa caisse à outils et une ardoise à poser au crochet."
+            caption="L’atelier · Angers (49)"
+            height={440}
+          />
+          <div className="panneau rounded-[4px] p-6 md:p-8">
+            <div className="prose-vasseur">
+              <h3>Julien Vasseur, compagnon couvreur</h3>
+              <p>
+                Formé chez les Compagnons du Devoir, passé par le Tour de France
+                du métier, {business.founderFirstName} s’est installé à Angers en{' '}
+                {business.foundingYear}. Il fait le relevé, il rédige le devis, il
+                est sur l’échafaudage le jour de la pose. C’est ce lien direct qui
+                fait qu’un détail vu à la visite se retrouve exécuté sur le toit.
+              </p>
+              <h3>Une équipe de trois, pas une plateforme</h3>
+              <p>
+                {business.team}. On intervient sur un chantier à la fois, du
+                démontage à la réception, sans jongler entre dix affaires. La
+                zinguerie est façonnée à l’atelier, aux cotes du chantier. Ce
+                choix limite le volume qu’on peut prendre — c’est aussi ce qui
+                garantit la finition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* 8 — Déroulé d'un chantier */}
+      <Section
+        eyebrow="Méthode"
+        title="Le déroulé d’un chantier, étape par étape"
+        intro="De votre appel à la réception, voici l’ordre dans lequel les choses se passent. Chaque étape est validée avec vous avant la suivante."
+      >
+        <Steps
+          items={[
+            { t: 'Votre appel', d: 'On note l’adresse, le type de toiture, ce que vous constatez. Si c’est une fuite active, on programme une mise hors d’eau sans attendre le devis.' },
+            { t: 'La visite technique', d: 'Julien monte sur le toit ou inspecte depuis une échelle et sous les combles. Relevé des pentes, des points singuliers, état de la charpente, contraintes d’accès et de voirie.' },
+            { t: 'Le devis détaillé', d: 'Sous 48 h, un devis poste par poste : dépose, écran, liteaunage, fourniture d’ardoise, zinguerie, échafaudage, évacuation. Les hypothèses de reprise de charpente sont chiffrées à part.' },
+            { t: 'La préparation et l’échafaudage', d: 'Déclaration préalable et, si besoin, dossier ABF et autorisation de voirie. Montage de l’échafaudage, protection des abords, bâche d’attente.' },
+            { t: 'La réalisation', d: 'Dépose, contrôle et traitement de la charpente, pose de l’écran et du liteaunage, couverture, faîtage, zinguerie et points singuliers. Le chantier reste hors d’eau chaque soir.' },
+            { t: 'La réception du chantier', d: 'Tour du toit avec vous, nettoyage complet, évacuation des gravats. Remise des attestations de garantie et de la facture. Une visite de contrôle est proposée l’année suivante.' },
+          ]}
+        />
+      </Section>
+
+      {/* 9 — Prix / facteurs de prix */}
+      <Section
+        eyebrow="Budget"
+        title="Ce qui fait le prix d’une toiture"
+        intro="Un prix au mètre carré ne veut rien dire tant qu’on n’a pas vu le toit. Voici les quatre facteurs qui font vraiment bouger un devis, et des fourchettes pour situer votre projet."
+      >
+        <div className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 md:grid-cols-2">
+          {facteursPrix.map((f) => (
+            <div key={f.t} className="bg-nuit-2 p-6 md:p-7">
+              <h3 className="font-display text-lg text-papier">{f.t}</h3>
+              <p className="mt-2 text-sm text-papier/70">{f.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="panneau mt-8 rounded-[4px] p-6 md:p-10">
+          <div className="prose-vasseur">
+            <p><strong>Fourchettes indicatives, agglomération d’Angers, 2026 —</strong> à confirmer après visite :</p>
+            <ul>
+              <li>Réfection complète en ardoise naturelle d’Anjou : <strong>180 à 320 €/m²</strong>, dépose comprise.</li>
+              <li>Réfection en ardoise fibre-ciment : <strong>120 à 190 €/m²</strong>.</li>
+              <li>Remplacement ponctuel d’ardoises, reprise de faîtage : <strong>250 à 600 €</strong> l’intervention.</li>
+              <li>Recherche de fuite avec compte rendu photos : <strong>150 à 350 €</strong>.</li>
+              <li>Gouttière zinc demi-ronde posée : <strong>55 à 90 €/ml</strong>.</li>
+              <li>Démoussage, brossage et traitement hydrofuge : <strong>18 à 35 €/m²</strong>.</li>
+              <li>Fenêtre de toit fournie et posée : <strong>900 à 1 800 €</strong> selon dimensions.</li>
+              <li>Échafaudage : <strong>8 à 15 €/m²</strong> de façade, ou forfait selon la durée.</li>
+            </ul>
+            <p>
+              Reprise de charpente, traitement de bois, isolation par sarking :
+              postes chiffrés séparément, jamais imposés sans vous montrer ce qui
+              le justifie.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 10 — Garanties */}
+      <Section
+        eyebrow="Garanties"
+        title="Garanties, assurances et urgences"
+        intro="Ce qui vous couvre après notre départ, et ce sur quoi vous pouvez compter pendant."
+      >
+        <div className="panneau rounded-[4px] p-6 md:p-10">
+          <div className="prose-vasseur">
+            <h3>Garantie décennale et parfait achèvement</h3>
+            <p>
+              Toute réfection est couverte par notre garantie décennale ({business.trust.decennale}). L’attestation nominative vous est remise avec le
+              devis, avant signature. La première année, la garantie de parfait
+              achèvement couvre toute reprise sans discussion.
+            </p>
+            <h3>Assurance responsabilité civile</h3>
+            <p>
+              Nous sommes assurés en responsabilité civile professionnelle et
+              exploitation : dégât sur votre bien ou celui d’un voisin pendant le
+              chantier, la prise en charge est immédiate. Justificatifs fournis
+              sur simple demande.
+            </p>
+            <h3>Intervention d’urgence et déplacement</h3>
+            <p>
+              Fuite active, ardoises envolées, faîtage arraché après un coup de
+              vent : {business.trust.urgenceDelay}. Le déplacement, la visite et
+              le devis sont gratuits dans toute la zone d’intervention, sans
+              condition de montant de travaux.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 11 — Zone d'intervention */}
+      <Section
+        id="zone"
+        eyebrow="Secteur"
+        title="Angers et les communes limitrophes"
+        intro="Un rayon volontairement resserré autour d’Angers. C’est ce qui nous permet d’être sur place vite, de connaître les interlocuteurs d’urbanisme et de repasser sans facturer un long déplacement."
+      >
+        <ul className="grid gap-px overflow-hidden rounded-[3px] border border-ciel/20 bg-ciel/20 sm:grid-cols-2">
+          {communes.map((c) => (
+            <li key={c.name} className="bg-nuit-2 p-5">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-display text-lg text-papier">
+                  {c.name === 'Angers' ? (
+                    <Link href="/couvreur-angers" className="hover:text-ciel">
+                      Couvreur à {c.name}
+                    </Link>
+                  ) : (
+                    `Couvreur ${c.name}`
+                  )}
+                </span>
+                <span className="font-mono text-[0.72rem] text-ciel/70">{c.cp}</span>
+              </div>
+              <p className="mt-1 text-sm text-papier/65">{c.note}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-sm text-papier/60">
+          Page dédiée :{' '}
+          <Link href="/couvreur-angers" className="text-ciel underline underline-offset-2">
+            couvreur à Angers — toitures anciennes et ardoise d’Anjou
+          </Link>
+          .
+        </p>
+      </Section>
+
+      {/* 12 — FAQ */}
+      <Section
+        eyebrow="Questions fréquentes"
+        title="Ce qu’on nous demande le plus souvent"
+        intro="Délais, budget, aides, urbanisme, copropriété : les réponses courtes. Le reste se règle de vive voix."
+      >
+        <Faq items={faq} />
+      </Section>
+
+      {/* 13 — Bloc devis (bas de page) */}
+      <DevisBand
+        id="devis-bas"
+        title="Un devis, pas une estimation au téléphone"
+        intro="Le seul moyen de chiffrer juste, c’est de voir le toit. Laissez vos coordonnées, on fixe la visite cette semaine."
+      />
+
+      {/* Rappel de contact + maillage */}
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+        <div className="hairline pt-8">
+          <h2 className="text-3xl text-papier md:text-4xl">Parler de votre toiture</h2>
+          <p className="mt-4 max-w-prose2 text-papier/75">
+            {business.founderFirstName} répond directement, du lundi au vendredi de
+            7 h 30 à 18 h 30 et le samedi matin. Pour une urgence, appelez : c’est
+            toujours plus rapide qu’un formulaire.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <PhoneLink label={`${business.phoneDisplay} — ${business.founderFirstName}`} />
+            <PhoneLink variant="ghost" label={`${business.phoneSecondaryDisplay} — atelier`} />
+          </div>
+
+          <div className="mt-10 grid gap-6 text-sm text-papier/70 sm:grid-cols-3">
+            <div>
+              <p className="cartouche">Aller plus loin</p>
+              <ul className="mt-3 space-y-2">
+                <li>
+                  <Link href={`/${primaryPrestationSlug}`} className="hover:text-ciel">
+                    Réfection de toiture en ardoise à Angers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/couvreur-angers" className="hover:text-ciel">
+                    Couvreur à Angers — page ville
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#prestations" className="hover:text-ciel">
+                    Toutes les prestations
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="cartouche">Secteur</p>
+              <ul className="mt-3 space-y-2">
+                {communes.slice(0, 4).map((c) => (
+                  <li key={c.name}>Couvreur {c.name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="cartouche">Coordonnées</p>
+              <address className="mt-3 not-italic">
+                {business.address.street}
+                <br />
+                {business.address.postalCode} {business.address.city}
+                <br />
+                <a href={`mailto:${business.email}`} className="hover:text-ciel">
+                  {business.email}
+                </a>
+              </address>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
