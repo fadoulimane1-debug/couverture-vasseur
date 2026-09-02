@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/Section';
 import Steps from '@/components/Steps';
@@ -136,12 +137,36 @@ export default function Accueil() {
     <>
       <Jsonld data={faqSchema(faq)} />
 
-      {/* Bandeau d'ouverture — zone sombre : H1, promesse, téléphone, devis, coupe technique */}
-      <section className="tone-dark bg-nuit blueprint-grid border-b border-nuit/10">
-        <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pb-16 md:pt-20">
-          <p className="cartouche">Angers · Anjou · Maine-et-Loire 49</p>
-          <h1 className="mt-4 max-w-4xl text-papier">Couvreur zingueur à Angers</h1>
-          <p className="mt-6 max-w-2xl text-lg text-papier/80 md:text-xl">
+      {/* Bandeau d'ouverture — zone sombre : photo de chantier en fond + overlay bleu-nuit */}
+      <section className="tone-dark relative isolate overflow-hidden border-b border-nuit/10 bg-nuit">
+        {/* Photo de fond — visible d'emblée, donc priority (pas de lazy loading) */}
+        <Image
+          src="/img/photos/hero-chantier-echafaudage.jpg"
+          alt="Chantier de réfection de toiture sur une maison ancienne : couverture déposée jusqu’au liteaunage, échafaudage dressé sur toute la façade et deux couvreurs au travail sur la plateforme."
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover"
+        />
+        {/* Overlay dégradé bleu-nuit (#0C131C) pour garder le texte lisible en blanc */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              'linear-gradient(102deg, rgba(12,19,28,0.96) 0%, rgba(12,19,28,0.90) 42%, rgba(12,19,28,0.79) 72%, rgba(12,19,28,0.67) 100%), linear-gradient(to top, rgba(12,19,28,0.62) 0%, rgba(12,19,28,0) 46%)',
+          }}
+        />
+        {/* Trame « papier millimétré » — signature discrète, par-dessus l'overlay */}
+        <div
+          aria-hidden="true"
+          className="blueprint-grid pointer-events-none absolute inset-0 -z-10 opacity-60"
+        />
+        <div className="mx-auto max-w-6xl px-5 pb-12 pt-14 md:px-8 md:pb-20 md:pt-24">
+          {/* Sur photo : cartouche en papier (et non bleu ciel) pour garantir le contraste AA */}
+          <p className="cartouche !text-papier">Angers · Anjou · Maine-et-Loire 49</p>
+          <h1 className="mt-4 max-w-4xl text-white">Couvreur zingueur à Angers</h1>
+          <p className="mt-6 max-w-2xl text-lg text-papier md:text-xl">
             La toiture ancienne d’Angers, reprise dans les règles de l’ardoise
             d’Anjou — par l’artisan qui monte lui-même sur le toit.
           </p>
@@ -164,8 +189,6 @@ export default function Accueil() {
             <span className="badge"><b>{business.trust.rating}/5</b> · {business.trust.reviewCount} avis Google</span>
             <span className="badge"><b>{business.yearsLabel}</b></span>
           </div>
-
-          <RoofSection className="mt-12 rounded-[4px] border border-ciel/15 bg-nuit-2/60 p-4 text-ciel md:mt-16 md:p-8" />
         </div>
       </section>
 
@@ -202,6 +225,15 @@ export default function Accueil() {
               le devis.
             </p>
           </div>
+        </div>
+
+        {/* Coupe technique — signature du site, déplacée ici depuis le hero :
+            elle illustre directement le complexe de couverture décrit ci-dessus. */}
+        <div className="mt-8 overflow-hidden rounded-[4px] border border-nuit/15 bg-nuit text-ciel md:mt-10">
+          <RoofSection className="p-4 md:p-8" />
+          <p className="border-t border-ciel/15 px-4 py-3 font-mono text-[0.72rem] uppercase tracking-label text-ciel">
+            Coupe de principe — le complexe de couverture que nous remontons à Angers
+          </p>
         </div>
       </Section>
 
