@@ -9,7 +9,6 @@ import DevisBand from '@/components/DevisBand';
 import PhoneLink from '@/components/PhoneLink';
 import PriceTable from '@/components/PriceTable';
 import Testimonials from '@/components/Testimonials';
-import RoofSection from '@/components/RoofSection';
 import Jsonld from '@/components/Jsonld';
 import { faqSchema } from '@/lib/schema';
 import { business, communes, ogImages, prestations, primaryPrestationSlug } from '@/lib/site';
@@ -73,40 +72,31 @@ const faq = [
 
 const chantiers = [
   {
-    src: '/img/chantier-maison-ville-angers.svg',
-    titre: 'Maison de ville en tuffeau, secteur sauvegardé — Angers',
-    alt: 'Coupe avant/après d’une maison de ville en tuffeau du centre d’Angers : ardoises glissées, faîtage descellé et gouttière déformée à gauche, couverture neuve en ardoise d’Anjou avec faîtière ventilée et zinguerie neuve à droite.',
     photo: '/img/photos/chantier-ardoise-toiture.jpg',
+    titre: 'Maison de ville en tuffeau, secteur sauvegardé — Angers',
     photoAlt:
-      'Toiture en ardoise naturelle à forte pente avec lucarnes rampantes, ardoises patinées et rangs de rive taillés — couverture comparable à celle d’une maison de ville d’Angers refaite en ardoise d’Anjou.',
-    photoCaption: 'Photo — couverture en ardoise d’Anjou comparable',
+      'Toiture en ardoise naturelle à forte pente couverte de lucarnes rampantes, ardoises patinées et rangs de rive taillés — couverture d’une maison de ville comparable à celles du centre d’Angers.',
+    photoCaption: 'Couverture en ardoise naturelle, forte pente et lucarnes',
     texte:
       'Toiture d’origine à bout de souffle : crochets rouillés, ardoises feuilletées, faîtage au mortier éclaté. Dépose complète, contrôle de la charpente chêne, écran de sous-toiture, liteaunage neuf et pose d’ardoise d’Anjou 32×22 à crochet inox. Faîtage à sec sur closoir ventilé, zinguerie et descente refaites. Dossier ABF déposé et suivi.',
-    caption: 'Réf. 2024-118 · 92 m² · réfection complète',
   },
   {
-    src: '/img/chantier-longere-avrille.svg',
-    titre: 'Longère à Avrillé — démoussage et reprise de faîtage',
-    alt: 'Vue avant/après d’une longère à Avrillé : versant couvert de mousse épaisse et faîtage à reprendre à gauche, toiture brossée et traitée avec faîtage refait et raccord de lucarne à droite.',
     photo: '/img/photos/chantier-demoussage-faitage.jpg',
+    titre: 'Longère à Avrillé — démoussage et reprise de faîtage',
     photoAlt:
-      'Versant de toiture en ardoise envahi par la mousse et le lichen, faîtage moussu et partiellement descellé en tête de pignon — état type avant démoussage et reprise de faîtage.',
-    photoCaption: 'Photo — état type avant démoussage',
+      'Versant de toiture en ardoise envahi par la mousse et le lichen, faîtage moussu et partiellement descellé en tête de pignon — état avant démoussage et reprise du faîtage.',
+    photoCaption: 'Versant envahi par la mousse — avant démoussage',
     texte:
       'Pas de réfection ici : la couverture était saine sous la mousse. Brossage manuel et basse pression, purge des lichens, traitement hydrofuge fongicide. Reprise du faîtage au mortier bâtard sur 22 mètres, remplacement des ardoises cassées et réfection du raccord de lucarne au plomb.',
-    caption: 'Réf. 2023-074 · 140 m² · entretien lourd',
   },
   {
-    src: '/img/chantier-noue-ponts-de-ce.svg',
-    titre: 'Maison de bord de Loire aux Ponts-de-Cé — réfection de noue',
-    alt: 'Vue de dessus avant/après d’une toiture aux Ponts-de-Cé : noue en zinc percée avec traces d’infiltration à gauche, noue neuve en zinc 0,8 mm avec ardoises biaisées et pente vérifiée à droite.',
     photo: '/img/photos/chantier-zinguerie-ardoise.jpg',
+    titre: 'Maison de bord de Loire aux Ponts-de-Cé — réfection de noue',
     photoAlt:
-      'Tourelle couverte en ardoise avec poinçon en cuivre patiné et raccords de zinguerie, souches en pierre de taille sur ciel bleu — ouvrage de couvreur-zingueur sur toiture en ardoise.',
-    photoCaption: 'Photo — ardoise et zinguerie, ouvrage comparable',
+      'Ouvrage de couvreur-zingueur sur toiture en ardoise : tourelle couverte en ardoise avec poinçon en cuivre patiné, raccords métalliques et souches en pierre de taille sur ciel bleu.',
+    photoCaption: 'Ardoise et zinguerie — raccords métalliques et poinçon cuivre',
     texte:
       'Auréoles sous combles à l’aplomb de la noue : le zinc, posé il y a quarante ans, était percé. Dépose des ardoises de rive de noue, fond de noue neuf en zinc 0,8 mm, pente d’évacuation reprise, ardoises recoupées en biais et fixées au crochet. Reprise de l’égout sur trois mètres.',
-    caption: 'Réf. 2024-203 · noue 9 ml + égout',
   },
 ];
 
@@ -137,36 +127,36 @@ export default function Accueil() {
     <>
       <Jsonld data={faqSchema(faq)} />
 
-      {/* Bandeau d'ouverture — zone sombre : photo de chantier en fond + overlay bleu-nuit */}
-      <section className="tone-dark relative isolate overflow-hidden border-b border-nuit/10 bg-nuit">
+      {/* Bandeau d'ouverture — photo de chantier plein cadre + léger dégradé de lisibilité */}
+      <section className="tone-dark relative isolate flex min-h-[34rem] flex-col justify-center overflow-hidden border-b border-nuit/10 bg-nuit md:min-h-[40rem]">
         {/* Photo de fond — visible d'emblée, donc priority (pas de lazy loading) */}
         <Image
           src="/img/photos/hero-chantier-echafaudage.jpg"
-          alt="Chantier de réfection de toiture sur une maison ancienne : couverture déposée jusqu’au liteaunage, échafaudage dressé sur toute la façade et deux couvreurs au travail sur la plateforme."
+          alt="Couvreur en casque et gants de protection sur un échafaudage, à l’égout d’une toiture en cours de réfection, près d’une souche de cheminée en brique."
           fill
           priority
           sizes="100vw"
           className="-z-10 object-cover"
         />
-        {/* Overlay dégradé bleu-nuit (#0C131C) pour garder le texte lisible en blanc */}
+        {/* Dégradé de lisibilité : fond léger (~26 %) sur toute la photo, renforcé
+            en haut et à gauche derrière le texte. La photo reste dominante. */}
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-10"
           style={{
             background:
-              'linear-gradient(102deg, rgba(12,19,28,0.96) 0%, rgba(12,19,28,0.90) 42%, rgba(12,19,28,0.79) 72%, rgba(12,19,28,0.67) 100%), linear-gradient(to top, rgba(12,19,28,0.62) 0%, rgba(12,19,28,0) 46%)',
+              'linear-gradient(90deg, rgba(12,19,28,0.74) 0%, rgba(12,19,28,0.56) 26%, rgba(12,19,28,0.35) 44%, rgba(12,19,28,0.08) 58%, rgba(12,19,28,0) 68%),' +
+              'linear-gradient(180deg, rgba(12,19,28,0.55) 0%, rgba(12,19,28,0.36) 24%, rgba(12,19,28,0.12) 44%, rgba(12,19,28,0) 62%),' +
+              'linear-gradient(rgba(12,19,28,0.26), rgba(12,19,28,0.26))',
           }}
         />
-        {/* Trame « papier millimétré » — signature discrète, par-dessus l'overlay */}
-        <div
-          aria-hidden="true"
-          className="blueprint-grid pointer-events-none absolute inset-0 -z-10 opacity-60"
-        />
-        <div className="mx-auto max-w-6xl px-5 pb-12 pt-14 md:px-8 md:pb-20 md:pt-24">
+        <div className="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-20">
           {/* Sur photo : cartouche en papier (et non bleu ciel) pour garantir le contraste AA */}
           <p className="cartouche !text-papier">Angers · Anjou · Maine-et-Loire 49</p>
-          <h1 className="mt-4 max-w-4xl text-white">Couvreur zingueur à Angers</h1>
-          <p className="mt-6 max-w-2xl text-lg text-papier md:text-xl">
+          <h1 className="mt-4 max-w-2xl text-white [text-shadow:0_1px_2px_rgba(12,19,28,0.7),0_4px_20px_rgba(12,19,28,0.5)]">
+            Couvreur zingueur à Angers
+          </h1>
+          <p className="mt-6 max-w-lg text-lg text-papier [text-shadow:0_1px_2px_rgba(12,19,28,0.7),0_2px_14px_rgba(12,19,28,0.5)] md:text-xl">
             La toiture ancienne d’Angers, reprise dans les règles de l’ardoise
             d’Anjou — par l’artisan qui monte lui-même sur le toit.
           </p>
@@ -183,7 +173,7 @@ export default function Accueil() {
           </div>
 
           {/* Gages de confiance dès le premier écran */}
-          <div className="badge-row mt-7">
+          <div className="badge-row mt-7 max-w-xl">
             <span className="badge"><b>RGE</b> Qualibat</span>
             <span className="badge"><b>Décennale</b> MMA</span>
             <span className="badge"><b>{business.trust.rating}/5</b> · {business.trust.reviewCount} avis Google</span>
@@ -227,14 +217,15 @@ export default function Accueil() {
           </div>
         </div>
 
-        {/* Coupe technique — signature du site, déplacée ici depuis le hero :
-            elle illustre directement le complexe de couverture décrit ci-dessus. */}
-        <div className="mt-8 overflow-hidden rounded-[4px] border border-nuit/15 bg-nuit text-ciel md:mt-10">
-          <RoofSection className="p-4 md:p-8" />
-          <p className="border-t border-ciel/15 px-4 py-3 font-mono text-[0.72rem] uppercase tracking-label text-ciel">
-            Coupe de principe — le complexe de couverture que nous remontons à Angers
-          </p>
-        </div>
+        {/* Gros plan sur une couverture en ardoise : pose et recouvrements */}
+        <Figure
+          src="/img/photos/ardoise-gros-plan.jpg"
+          alt="Gros plan d’une couverture en ardoise naturelle posée en écaille : rangs d’ardoises taillées en pointe qui se recouvrent autour d’une petite lucarne à faîtage rouge, crochets de fixation apparents."
+          caption="Ardoise naturelle posée en écaille — recouvrements et rangs de rive"
+          width={1500}
+          height={1000}
+          className="mt-8 md:mt-10"
+        />
       </Section>
 
       {/* Bloc devis — haut de page (« Devis gratuit sous 48 h ») */}
@@ -247,21 +238,13 @@ export default function Accueil() {
         intro="Ici, pas de standard téléphonique qui revend votre demande à un poseur inconnu. Vous parlez au couvreur qui relèvera votre toit et posera vos ardoises."
       >
         <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-start">
-          <div className="grid gap-4">
-            <Figure
-              src="/img/photos/couvreur-au-travail-toiture.jpg"
-              alt="Couvreur en casque et lunettes de protection, agenouillé sur une toiture mise à nu jusqu’au liteaunage, déposant les anciennes tuiles au cours d’un chantier de réfection."
-              caption="Photo — couvreur au travail sur le toit"
-              width={1500}
-              height={1000}
-            />
-            <Figure
-              src="/img/atelier-julien-vasseur.svg"
-              alt="Illustration au trait de Julien Vasseur, couvreur zingueur, agenouillé sur un rampant en ardoise avec sa caisse à outils et une ardoise à poser au crochet."
-              caption="L’atelier · Angers (49)"
-              height={440}
-            />
-          </div>
+          <Figure
+            src="/img/photos/couvreur-au-travail-toiture.jpg"
+            alt="Couvreur en casque et lunettes de protection, agenouillé sur une toiture mise à nu jusqu’au liteaunage, déposant les anciennes tuiles au cours d’un chantier de réfection."
+            caption="Sur le chantier — dépose de la couverture avant réfection"
+            width={1500}
+            height={1000}
+          />
           <div className="panneau rounded-[4px] p-6 md:p-8">
             <div className="prose-vasseur">
               <h3>Julien Vasseur, passé par le compagnonnage</h3>
@@ -331,25 +314,22 @@ export default function Accueil() {
         </div>
       </Section>
 
-      {/* Réalisations : 3 chantiers avant/après */}
+      {/* Réalisations : 3 chantiers menés autour d'Angers */}
       <Section
         eyebrow="Relevés de chantier"
-        title="Trois toits de l’agglomération, avant et après"
-        intro="Une réfection lourde, un entretien, une réparation ciblée : trois façons d’aborder une couverture d’ardoise, relevées sur des chantiers menés autour d’Angers."
+        title="Trois toits de l’agglomération"
+        intro="Une réfection lourde, un entretien, une réparation ciblée : trois façons d’aborder une couverture d’ardoise, sur des chantiers menés autour d’Angers."
       >
         <div className="grid gap-10">
           {chantiers.map((c) => (
-            <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-start">
-              <div className="grid gap-4">
-                <Figure
-                  src={c.photo}
-                  alt={c.photoAlt}
-                  caption={c.photoCaption}
-                  width={1500}
-                  height={1000}
-                />
-                <Figure src={c.src} alt={c.alt} caption={c.caption} />
-              </div>
+            <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
+              <Figure
+                src={c.photo}
+                alt={c.photoAlt}
+                caption={c.photoCaption}
+                width={1500}
+                height={1000}
+              />
               <div>
                 <h3 className="text-[1.05rem] text-nuit">{c.titre}</h3>
                 <p className="mt-3 text-nuit/70">{c.texte}</p>
@@ -358,10 +338,9 @@ export default function Accueil() {
           ))}
         </div>
         <p className="mt-8 text-sm text-nuit/70">
-          Les coupes sont des relevés de principe ; les photographies illustrent
-          des toitures et des ouvrages en ardoise comparables. Les clichés de nos
-          propres chantiers se voient sur demande, avec l’accord des
-          propriétaires.
+          Photographies d’illustration (toitures et ouvrages en ardoise
+          comparables). Les clichés de nos propres chantiers se voient sur
+          demande, avec l’accord des propriétaires.
         </p>
       </Section>
 

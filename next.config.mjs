@@ -10,11 +10,8 @@ const nextConfig = {
   // lockfile existe plus haut dans l'arborescence de l'utilisateur).
   outputFileTracingRoot: __dirname,
   images: {
-    // Les illustrations du site sont des SVG vectoriels que nous fournissons
-    // nous-mêmes (libres de droits). next/image les sert optimisés.
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Le site n'utilise plus que des photographies (JPEG) servies via next/image,
+    // optimisées à la volée en AVIF/WebP.
     formats: ['image/avif', 'image/webp'],
   },
   async headers() {
