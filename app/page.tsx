@@ -75,6 +75,10 @@ const chantiers = [
     src: '/img/chantier-maison-ville-angers.svg',
     titre: 'Maison de ville en tuffeau, secteur sauvegardé — Angers',
     alt: 'Coupe avant/après d’une maison de ville en tuffeau du centre d’Angers : ardoises glissées, faîtage descellé et gouttière déformée à gauche, couverture neuve en ardoise d’Anjou avec faîtière ventilée et zinguerie neuve à droite.',
+    photo: '/img/photos/chantier-ardoise-toiture.jpg',
+    photoAlt:
+      'Toiture en ardoise naturelle à forte pente avec lucarnes rampantes, ardoises patinées et rangs de rive taillés — couverture comparable à celle d’une maison de ville d’Angers refaite en ardoise d’Anjou.',
+    photoCaption: 'Photo — couverture en ardoise d’Anjou comparable',
     texte:
       'Toiture d’origine à bout de souffle : crochets rouillés, ardoises feuilletées, faîtage au mortier éclaté. Dépose complète, contrôle de la charpente chêne, écran de sous-toiture, liteaunage neuf et pose d’ardoise d’Anjou 32×22 à crochet inox. Faîtage à sec sur closoir ventilé, zinguerie et descente refaites. Dossier ABF déposé et suivi.',
     caption: 'Réf. 2024-118 · 92 m² · réfection complète',
@@ -83,6 +87,10 @@ const chantiers = [
     src: '/img/chantier-longere-avrille.svg',
     titre: 'Longère à Avrillé — démoussage et reprise de faîtage',
     alt: 'Vue avant/après d’une longère à Avrillé : versant couvert de mousse épaisse et faîtage à reprendre à gauche, toiture brossée et traitée avec faîtage refait et raccord de lucarne à droite.',
+    photo: '/img/photos/chantier-demoussage-faitage.jpg',
+    photoAlt:
+      'Versant de toiture en ardoise envahi par la mousse et le lichen, faîtage moussu et partiellement descellé en tête de pignon — état type avant démoussage et reprise de faîtage.',
+    photoCaption: 'Photo — état type avant démoussage',
     texte:
       'Pas de réfection ici : la couverture était saine sous la mousse. Brossage manuel et basse pression, purge des lichens, traitement hydrofuge fongicide. Reprise du faîtage au mortier bâtard sur 22 mètres, remplacement des ardoises cassées et réfection du raccord de lucarne au plomb.',
     caption: 'Réf. 2023-074 · 140 m² · entretien lourd',
@@ -91,6 +99,10 @@ const chantiers = [
     src: '/img/chantier-noue-ponts-de-ce.svg',
     titre: 'Maison de bord de Loire aux Ponts-de-Cé — réfection de noue',
     alt: 'Vue de dessus avant/après d’une toiture aux Ponts-de-Cé : noue en zinc percée avec traces d’infiltration à gauche, noue neuve en zinc 0,8 mm avec ardoises biaisées et pente vérifiée à droite.',
+    photo: '/img/photos/chantier-zinguerie-ardoise.jpg',
+    photoAlt:
+      'Tourelle couverte en ardoise avec poinçon en cuivre patiné et raccords de zinguerie, souches en pierre de taille sur ciel bleu — ouvrage de couvreur-zingueur sur toiture en ardoise.',
+    photoCaption: 'Photo — ardoise et zinguerie, ouvrage comparable',
     texte:
       'Auréoles sous combles à l’aplomb de la noue : le zinc, posé il y a quarante ans, était percé. Dépose des ardoises de rive de noue, fond de noue neuf en zinc 0,8 mm, pente d’évacuation reprise, ardoises recoupées en biais et fixées au crochet. Reprise de l’égout sur trois mètres.',
     caption: 'Réf. 2024-203 · noue 9 ml + égout',
@@ -202,13 +214,22 @@ export default function Accueil() {
         title="L’homme qui monte sur le toit a un nom"
         intro="Ici, pas de standard téléphonique qui revend votre demande à un poseur inconnu. Vous parlez au couvreur qui relèvera votre toit et posera vos ardoises."
       >
-        <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-center">
-          <Figure
-            src="/img/atelier-julien-vasseur.svg"
-            alt="Illustration au trait de Julien Vasseur, couvreur zingueur, agenouillé sur un rampant en ardoise avec sa caisse à outils et une ardoise à poser au crochet."
-            caption="L’atelier · Angers (49)"
-            height={440}
-          />
+        <div className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-start">
+          <div className="grid gap-4">
+            <Figure
+              src="/img/photos/couvreur-au-travail-toiture.jpg"
+              alt="Couvreur en casque et lunettes de protection, agenouillé sur une toiture mise à nu jusqu’au liteaunage, déposant les anciennes tuiles au cours d’un chantier de réfection."
+              caption="Photo — couvreur au travail sur le toit"
+              width={1500}
+              height={1000}
+            />
+            <Figure
+              src="/img/atelier-julien-vasseur.svg"
+              alt="Illustration au trait de Julien Vasseur, couvreur zingueur, agenouillé sur un rampant en ardoise avec sa caisse à outils et une ardoise à poser au crochet."
+              caption="L’atelier · Angers (49)"
+              height={440}
+            />
+          </div>
           <div className="panneau rounded-[4px] p-6 md:p-8">
             <div className="prose-vasseur">
               <h3>Julien Vasseur, passé par le compagnonnage</h3>
@@ -286,8 +307,17 @@ export default function Accueil() {
       >
         <div className="grid gap-10">
           {chantiers.map((c) => (
-            <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
-              <Figure src={c.src} alt={c.alt} caption={c.caption} />
+            <article key={c.titre} className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-start">
+              <div className="grid gap-4">
+                <Figure
+                  src={c.photo}
+                  alt={c.photoAlt}
+                  caption={c.photoCaption}
+                  width={1500}
+                  height={1000}
+                />
+                <Figure src={c.src} alt={c.alt} caption={c.caption} />
+              </div>
               <div>
                 <h3 className="text-[1.05rem] text-nuit">{c.titre}</h3>
                 <p className="mt-3 text-nuit/70">{c.texte}</p>
@@ -296,8 +326,10 @@ export default function Accueil() {
           ))}
         </div>
         <p className="mt-8 text-sm text-nuit/70">
-          Les dessins ci-dessus sont des relevés de principe. Les photos de
-          chantier se voient sur demande, avec l’accord des propriétaires.
+          Les coupes sont des relevés de principe ; les photographies illustrent
+          des toitures et des ouvrages en ardoise comparables. Les clichés de nos
+          propres chantiers se voient sur demande, avec l’accord des
+          propriétaires.
         </p>
       </Section>
 
