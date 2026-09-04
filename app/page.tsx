@@ -176,7 +176,7 @@ export default function Accueil() {
           <div className="badge-row mt-7 max-w-xl">
             <span className="badge"><b>RGE</b> Qualibat</span>
             <span className="badge"><b>Décennale</b> MMA</span>
-            <span className="badge"><b>{business.trust.rating}/5</b> · {business.trust.reviewCount} avis Google</span>
+            <span className="badge"><b>{business.trust.rating.toLocaleString('fr-FR')}/5</b> · {business.trust.reviewCount} avis Google</span>
             <span className="badge"><b>{business.yearsLabel}</b></span>
           </div>
         </div>
@@ -413,7 +413,7 @@ export default function Accueil() {
       >
         <dl className={`${gridWrap} sm:grid-cols-2 lg:grid-cols-4`}>
           {[
-            { k: `${business.trust.rating} / 5`, v: `${business.trust.reviewCount} avis Google laissés après des chantiers dans l’agglomération` },
+            { k: `${business.trust.rating.toLocaleString('fr-FR')} / 5`, v: `${business.trust.reviewCount} avis Google laissés après des chantiers dans l’agglomération` },
             { k: 'RGE Qualibat', v: 'la mention sans laquelle l’isolation n’ouvre aucun droit à aide' },
             { k: 'Décennale', v: 'contractée chez MMA, attestation nominative jointe à chaque devis' },
             { k: `${business.foundingYear}`, v: `à Angers ${business.since} — ${business.yearsLabel}` },

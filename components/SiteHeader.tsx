@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import PhoneLink from './PhoneLink';
@@ -10,6 +14,14 @@ const nav = [
 ];
 
 export default function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Referme le menu mobile après une navigation.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-nuit/10 bg-fond/90 backdrop-blur supports-[backdrop-filter]:bg-fond/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
@@ -49,8 +61,51 @@ export default function SiteHeader() {
             Devis<span className="hidden sm:inline">&nbsp;gratuit</span>
             <span aria-hidden="true">→</span>
           </Link>
+
+          {/* Menu mobile / tablette — masqué à partir de lg. */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="menu-mobile"
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[2px] border border-nuit/20 text-nuit lg:hidden"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Panneau du menu mobile */}
+      <nav
+        id="menu-mobile"
+        aria-label="Navigation"
+        hidden={!open}
+        className="border-t border-nuit/10 bg-fond/95 backdrop-blur lg:hidden"
+      >
+        <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3 font-mono text-[0.8rem] uppercase tracking-label text-nuit/75 md:px-8">
+          {nav.map((n) => (
+            <li key={n.href}>
+              <Link
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="block py-2.5 hover:text-encre"
+              >
+                {n.label}
+              </Link>
+            </li>
+          ))}
+          <li className="pt-2 sm:hidden">
+            <PhoneLink variant="ghost" className="w-full" />
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }
